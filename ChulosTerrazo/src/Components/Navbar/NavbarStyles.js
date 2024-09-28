@@ -11,21 +11,15 @@ export const NavbarContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   z-index: 1000;
-
-  small {
-    position: absolute;
-    left: 53.8%;
-    bottom: 10px;
-    font-size: 1em;
-    font-weight: 100;
-  }
 `;
+
 
 export const HamburgerMenu = styled.button`
   background: none;
   border: none;
   font-size: 24px;
   cursor: pointer;
+  padding-bottom: 10px;
   color: var(--silverFull7);
   &:hover {
     transform: scale(1.2);
@@ -33,6 +27,8 @@ export const HamburgerMenu = styled.button`
 `;
 
 export const ToggleCart = styled.button`
+  padding-bottom: 10px;
+
   background: none;
   border: none;
   font-size: 1em;
@@ -45,22 +41,12 @@ export const ToggleCart = styled.button`
   }
 `;
 
-export const Logo = styled.h2`
-  margin: 0;
-  color: white;
-  font-size: 2.6em;
-  font-family: "Dancing Script", cursive;
-  background: #17202a;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-`;
-
 export const Menu = styled.div`
   position: fixed;
   top: 0;
   left: 0;
   width: 250px;
-  height: 100%;
+  height: 100vh;
   background: silver;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
   padding: 1rem;
@@ -79,21 +65,6 @@ export const Menu = styled.div`
   }
 `;
 
-// export const CloseMenuButton = styled.button`
-//   background: none;
-//   border: none;
-//   font-size: 10px;
-//   cursor: pointer;
-//   position: absolute;
-//   top: 2px;
-//   right: 0;
-
-//   &:hover {
-//     transform: scale(1.1);
-//     filter: drop-shadow(1px 1px 12px red);
-//   }
-// `;
-
 export const Overlay = styled.div`
   position: fixed;
   top: 0;
@@ -109,7 +80,7 @@ export const Overlay = styled.div`
   transition: opacity 0.5s ease-in-out; /* Agrega una transición suave */
 
   &.open {
-    opacity: 1; /* Muestra con una transición fluida */
+    opacity: 1; 
   }
 `;
 

@@ -9,23 +9,37 @@ import {
   ToggleCart,
   Dropdown,
   DropdownMenu,
-  Logo,
-  // CloseMenuButton,
   Overlay,
   SearchButton,
   SearchContainer,
 } from "./NavbarStyles";
 import { SlMagnifier, SlArrowDown } from "react-icons/sl";
 import { FaShoppingBag } from "react-icons/fa";
+import { LogoNavbar } from "./LogoNavbar/LogoNavbar";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [scrollingDown, setScrollingDown] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const menuRef = useRef(null);
   const overlayRef = useRef(null);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setScrollingDown(currentScrollY > lastScrollY && currentScrollY > 100);
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -47,10 +61,9 @@ const Navbar = () => {
   }, [isMenuOpen]);
 
   return (
-    <NavbarContainer>
+    <NavbarContainer style={{ transform: scrollingDown ? "translateY(-48%)" : "translateY(0)", transition: "transform 0.3s ease", alignItems: scrollingDown ? "end" : "center" }}>
       <HamburgerMenu onClick={toggleMenu}>&#9776;</HamburgerMenu>
-      <Logo>Chulos</Logo>
-      <small>Diseño de interiores</small>
+      <LogoNavbar scrollingInfo={scrollingDown} />
       <ToggleCart>
         <FaShoppingBag />
       </ToggleCart>

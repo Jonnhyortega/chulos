@@ -5,6 +5,7 @@ export function Home() {
   return (
     <HomeWrapper>
       <Hero />
+      <Hero />
     </HomeWrapper>
   );
 }
