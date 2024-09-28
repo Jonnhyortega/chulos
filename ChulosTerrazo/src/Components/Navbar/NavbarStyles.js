@@ -5,12 +5,20 @@ export const NavbarContainer = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  background: #fff;
+  background: var(--greenFull1);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: space-between;
   z-index: 1000;
+
+  small {
+    position: absolute;
+    left: 53.8%;
+    bottom: 10px;
+    font-size: 1em;
+    font-weight: 100;
+  }
 `;
 
 export const HamburgerMenu = styled.button`
@@ -18,19 +26,33 @@ export const HamburgerMenu = styled.button`
   border: none;
   font-size: 24px;
   cursor: pointer;
+  color: var(--silverFull7);
+  &:hover {
+    transform: scale(1.2);
+  }
 `;
 
 export const ToggleCart = styled.button`
   background: none;
   border: none;
-  font-size: 24px;
+  font-size: 1em;
   cursor: pointer;
+  margin-right: 1em;
+  color: var(--silverFull7);
+
+  &:hover {
+    transform: scale(1.2);
+  }
 `;
 
 export const Logo = styled.h2`
-  font-family: "Arial", sans-serif;
   margin: 0;
-  color: black;
+  color: white;
+  font-size: 2.6em;
+  font-family: "Dancing Script", cursive;
+  background: #17202a;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 `;
 
 export const Menu = styled.div`
@@ -39,7 +61,7 @@ export const Menu = styled.div`
   left: 0;
   width: 250px;
   height: 100%;
-  background: #fff;
+  background: silver;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
   padding: 1rem;
   transform: translateX(-100%);
@@ -57,19 +79,20 @@ export const Menu = styled.div`
   }
 `;
 
-export const CloseMenuButton = styled.button`
-  background: none;
-  border: none;
-  font-size: 15px;
-  cursor: pointer;
-  position: absolute;
-  top: -6px;
-  right: -8px;
+// export const CloseMenuButton = styled.button`
+//   background: none;
+//   border: none;
+//   font-size: 10px;
+//   cursor: pointer;
+//   position: absolute;
+//   top: 2px;
+//   right: 0;
 
-  &:hover {
-    color: brown;
-  }
-`;
+//   &:hover {
+//     transform: scale(1.1);
+//     filter: drop-shadow(1px 1px 12px red);
+//   }
+// `;
 
 export const Overlay = styled.div`
   position: fixed;
@@ -93,12 +116,14 @@ export const Overlay = styled.div`
 export const MenuItem = styled.div`
   display: block;
   padding: 1rem 0;
-  color: #333;
+  color: #85929e;
   text-decoration: none;
   cursor: pointer;
-
+  font-weight: bold;
+  transition: 0.5s;
   &:hover {
-    background: #f0f0f0;
+    color: black;
+    letter-spacing: 2px;
   }
 `;
 
@@ -106,35 +131,28 @@ export const SearchInput = styled.input`
   width: 70%;
   padding: 0.5rem 1rem;
   border: 1px solid #ddd;
-  border-radius: 4px 0 0 4px; /* Borde redondeado a la izquierda */
+  border-radius: 4px 0 0 4px;
 `;
 
 export const SearchButton = styled.button`
-  padding: 0.2rem 1rem;
   margin: 0 0 0 1em;
-  border: 1px solid grey;
+  border: none;
   background: transparent;
-  color: #fff;
-  border-radius: 0 4px 4px 0; /* Borde redondeado a la derecha */
+  color: black;
+  border-radius: 0 4px 4px 0;
   cursor: pointer;
   transition: background 0.3s ease;
-
-  &:hover {
-  border:1px solid red;
-    background: silver;
-  }
 `;
 
 export const SearchContainer = styled.div`
   display: flex;
   align-items: center;
-  margin: 1rem 0; /* Espacio alrededor del contenedor */
+  margin: 1rem 0;
 `;
 export const Dropdown = styled.div`
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease;
-
   &.open {
     max-height: 300px; /* Ajusta según la cantidad de opciones */
   }
@@ -142,10 +160,12 @@ export const Dropdown = styled.div`
 
 export const DropdownMenu = styled.div`
   padding-left: 1rem;
-  background: #f9f9f9;
+  background: silver;
   border-left: 2px solid #ddd;
   margin-top: 0.5rem;
-
+  display: flex;
+  flex-direction: column;
+  align-items: start;
   ${MenuItem} {
     padding: 0.5rem 0;
   }

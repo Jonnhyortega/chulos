@@ -4,7 +4,7 @@ import logo from "../../assets/imgs/logoWsp1.png";
 
 export const CallToAction = () => {
   return (
-    <WhatsAppLink href="https://wa.me/5491123456789" target="_blank">
+    <WhatsAppLink href="https://wa.me/5491158227373" target="_blank">
       <WhatsAppIcon src={logo} alt="WhatsApp" />
     </WhatsAppLink>
   );

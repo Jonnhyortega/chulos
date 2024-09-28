@@ -1,10 +1,11 @@
-import React from 'react'
-
-export  function Home() {
+import React from "react";
+import { Hero } from "../Hero/Hero"
+import { HomeWrapper } from "./HomeStyles"
+export function Home() {
   return (
-    <div>
-     soy el HOME
-    </div>
-  )
+    <HomeWrapper>
+      <Hero />
+    </HomeWrapper>
+  );
 }
-export default Home
+export default Home;

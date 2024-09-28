@@ -10,11 +10,13 @@ import {
   Dropdown,
   DropdownMenu,
   Logo,
-  CloseMenuButton,
+  // CloseMenuButton,
   Overlay,
   SearchButton,
   SearchContainer,
 } from "./NavbarStyles";
+import { SlMagnifier, SlArrowDown } from "react-icons/sl";
+import { FaShoppingBag } from "react-icons/fa";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -47,35 +49,60 @@ const Navbar = () => {
   return (
     <NavbarContainer>
       <HamburgerMenu onClick={toggleMenu}>&#9776;</HamburgerMenu>
-      <Logo>CHULOS</Logo>
-      <ToggleCart>🛒</ToggleCart>
+      <Logo>Chulos</Logo>
+      <small>Diseño de interiores</small>
+      <ToggleCart>
+        <FaShoppingBag />
+      </ToggleCart>
       {isMenuOpen && (
         <>
-          <Overlay className={isMenuOpen ? "open" : ""} onClick={() => setIsMenuOpen(false)} />
+          <Overlay
+            className={isMenuOpen ? "open" : ""}
+            onClick={() => setIsMenuOpen(false)}
+          />
           <Menu ref={menuRef} className={isMenuOpen ? "open" : ""}>
-            <CloseMenuButton onClick={() => setIsMenuOpen(false)}>✕</CloseMenuButton>
-            
             <SearchContainer>
-              <SearchInput type="text" placeholder="Buscar..." />
-              <SearchButton onClick={() => alert("Buscando...")}>🔍 </SearchButton>
+              <SearchInput type="text" placeholder="Buscar" />
+              <SearchButton onClick={() => alert("Buscando...")}>
+                <SlMagnifier />
+              </SearchButton>
             </SearchContainer>
 
             <MenuItem as={NavLink} to="/" onClick={toggleMenu}>
               Inicio
             </MenuItem>
             <MenuItem as="div" onClick={toggleDropdown}>
-              Productos🔻
+              Productos <SlArrowDown />
             </MenuItem>
             <Dropdown className={isDropdownOpen ? "open" : ""}>
               <DropdownMenu>
-                <MenuItem as={NavLink} to="/productos/categoria1" onClick={toggleMenu}>
-                  Categoría 1
+                <MenuItem
+                  as={NavLink}
+                  to="/productos/divisores"
+                  onClick={toggleMenu}
+                >
+                  Divisores
                 </MenuItem>
-                <MenuItem as={NavLink} to="/productos/categoria2" onClick={toggleMenu}>
-                  Categoría 2
+                <MenuItem
+                  as={NavLink}
+                  to="/productos/sillas"
+                  onClick={toggleMenu}
+                >
+                  Sillas
                 </MenuItem>
-                <MenuItem as={NavLink} to="/productos/categoria3" onClick={toggleMenu}>
-                  Categoría 3
+                <MenuItem
+                  as={NavLink}
+                  to="/productos/espejos"
+                  onClick={toggleMenu}
+                >
+                  Espejos
+                </MenuItem>
+                <MenuItem
+                  as={NavLink}
+                  to="/productos/mesas"
+                  onClick={toggleMenu}
+                >
+                  Mesas bajas
                 </MenuItem>
               </DropdownMenu>
             </Dropdown>
