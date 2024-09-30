@@ -25,7 +25,6 @@ export const MenuContainer = styled.div`
   width: 250px;
   height: 100vh;
   background: var(--silverFull5);
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
   padding: 1rem;
   transform: translateX(-100%);
   opacity: 0;
@@ -34,7 +33,7 @@ export const MenuContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: start;
-  box-shadow: 1px 1px 5px var(--silverFull1);
+  box-shadow: 1px 1px 5px var(--silverFull5);
   &.open {
     animation: ${slideIn} 0.5s forwards;
     opacity: 1;

@@ -12,6 +12,11 @@ export const NavbarContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   z-index: 1000;
+  appearance: none; 
+`;
+
+export const Discount = styled.div`
+  width: 100%;
 `;
 
 export const HamburgerMenu = styled.button`

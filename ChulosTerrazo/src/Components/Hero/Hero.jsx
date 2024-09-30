@@ -15,7 +15,7 @@ export const Hero = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 5000);
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -23,10 +23,10 @@ export const Hero = () => {
   return (
     <HeroContainer>
       {/* Video de fondo */}
-      <VideoBackground autoPlay loop muted>
+      {/* <VideoBackground autoPlay loop muted>
         <source src={videoBckg} type="video/mp4" />
         Tu navegador no soporta el video.
-      </VideoBackground>
+      </VideoBackground> */}
 
       <Content $isVisible={isVisible}>
         <HeroTitle>Chulo's</HeroTitle>

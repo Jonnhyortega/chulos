@@ -11,7 +11,9 @@ const Navbar = () => {
   const [scrollingDown, setScrollingDown] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
   const closeMenu = () => {
     setIsMenuOpen(false);

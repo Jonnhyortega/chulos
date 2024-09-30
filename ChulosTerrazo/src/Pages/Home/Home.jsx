@@ -1,7 +1,7 @@
 import React from "react";
 import { Hero } from "../../Components/Hero/Hero";
 import { HomeWrapper } from "./HomeStyles";
-import { AboutUsHome } from "../../Components/Home/AboutUsHome/AboutUsHome";
+import { AboutUsHome } from "../../Components/AboutUsHome/AboutUsHome";
 export function Home() {
   return (
     <HomeWrapper>

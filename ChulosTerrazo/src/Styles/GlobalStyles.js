@@ -53,5 +53,8 @@ export const GlobalStyles = createGlobalStyle`
       }
     /* Scrollbar Styles */
     
-    
+    @font-face {
+    font-family: 'Billabong'; /* Reemplaza con el nombre que desees */
+    src: url('./Fonts/Billabong.ttf') format('truetype'); /* Ruta al archivo de fuente */
+    }
 `;

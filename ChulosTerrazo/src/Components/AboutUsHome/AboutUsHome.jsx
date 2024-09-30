@@ -1,6 +1,6 @@
 import React from "react";
-import { Gallery } from "../../LightGallery/LightGallery";
-import { AboutUsHomeWrapper, SubTitle, TitleAboutUs } from "../AboutUsHome/AboutUsHomeStyles";
+import { Gallery } from "../LightGallery/LightGallery";
+import { AboutUsHomeWrapper, SubTitle, TitleAboutUs } from "./AboutUsHomeStyles";
 
 export function AboutUsHome() {
   return (

@@ -59,7 +59,7 @@ export const SocialIcon = styled.a`
 
   &:hover {
     color: var(--greenFull3);
-    filter: drop-shadow( 1px 1px 4px var(--silverFull7));
+    transform: scale(1.2);
   }
 `;
 
@@ -70,9 +70,7 @@ export const CopyRight = styled.p`
   text-align: center;
 `;
 
-export const LogoWrapper = styled.div`
-
-`;
+export const LogoWrapper = styled.div``;
 
 export const LogoTitle = styled.h1`
   font-size: 2rem;
