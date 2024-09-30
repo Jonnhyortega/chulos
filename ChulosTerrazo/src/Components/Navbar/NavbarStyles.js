@@ -1,10 +1,11 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const NavbarContainer = styled.div`
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  height: 100px;
   background: var(--greenFull1);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -13,11 +14,12 @@ export const NavbarContainer = styled.div`
   z-index: 1000;
 `;
 
-
 export const HamburgerMenu = styled.button`
   background: none;
   border: none;
-  font-size: 24px;
+  font-size: 1.5em;
+  margin-left: 1em;
+
   cursor: pointer;
   padding-bottom: 10px;
   color: var(--silverFull7);
@@ -28,16 +30,33 @@ export const HamburgerMenu = styled.button`
 
 export const ToggleCart = styled.button`
   padding-bottom: 10px;
-
   background: none;
   border: none;
-  font-size: 1em;
-  cursor: pointer;
+  font-size: 1.5em;
   margin-right: 1em;
+  cursor: pointer;
   color: var(--silverFull7);
 
   &:hover {
     transform: scale(1.2);
+  }
+`;
+
+const slideIn = keyframes`
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+`;
+
+const slideOut = keyframes`
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
   }
 `;
 
@@ -52,16 +71,20 @@ export const Menu = styled.div`
   padding: 1rem;
   transform: translateX(-100%);
   opacity: 0;
-  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1),
-    opacity 0.5s ease-in-out; /* Transición más fluida */
+  transition: opacity 1s;
   z-index: 999;
   display: flex;
   flex-direction: column;
   align-items: start;
 
   &.open {
-    transform: translateX(0);
+    animation: ${slideIn} 0.5s forwards;
     opacity: 1;
+  }
+
+  &.closed {
+    animation: ${slideOut} 0.5s forwards;
+    opacity: 0;
   }
 `;
 
@@ -80,7 +103,7 @@ export const Overlay = styled.div`
   transition: opacity 0.5s ease-in-out; /* Agrega una transición suave */
 
   &.open {
-    opacity: 1; 
+    opacity: 1;
   }
 `;
 

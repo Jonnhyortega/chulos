@@ -73,7 +73,8 @@ const Navbar = () => {
             className={isMenuOpen ? "open" : ""}
             onClick={() => setIsMenuOpen(false)}
           />
-          <Menu ref={menuRef} className={isMenuOpen ? "open" : ""}>
+          <Menu ref={menuRef} className={isMenuOpen ? "open" : "closed"}>
+
             <SearchContainer>
               <SearchInput type="text" placeholder="Buscar" />
               <SearchButton onClick={() => alert("Buscando...")}>

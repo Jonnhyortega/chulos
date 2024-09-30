@@ -1,12 +1,12 @@
 import React from "react";
 import { Hero } from "../Hero/Hero";
 import { HomeWrapper } from "./HomeStyles";
-import { Gallery } from "../LightGallery/LightGallery";
+import { AboutUsHome } from "./AboutUsHome/AboutUsHome";
 export function Home() {
   return (
     <HomeWrapper>
       <Hero />
-      <Gallery />
+      <AboutUsHome />
     </HomeWrapper>
   );
 }

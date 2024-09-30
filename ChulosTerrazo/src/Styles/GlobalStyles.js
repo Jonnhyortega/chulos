@@ -33,5 +33,25 @@ export const GlobalStyles = createGlobalStyle`
     overflow-x: hidden;
     }
 
-
+ /* Scrollbar Styles */
+    ::-webkit-scrollbar {
+      width: 12px;
+      height: 12px;
+      }
+      
+      ::-webkit-scrollbar-track {
+        background: var(--greenFull1);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+          background: var(--silverFull1);
+          border-radius: 3px;
+          }
+          
+      ::-webkit-scrollbar-thumb:hover {
+         background: var(--greenFull3);
+      }
+    /* Scrollbar Styles */
+    
+    
 `;
