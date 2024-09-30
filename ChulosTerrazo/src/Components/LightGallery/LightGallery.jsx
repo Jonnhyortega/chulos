@@ -65,13 +65,7 @@ export function Gallery() {
             style={{ width: "200px", height: "200px", margin: "10px" }}
           />
         </a>
-        <a href={img}>
-          <img
-            alt="img2"
-            src={img}
-            style={{ width: "200px", height: "200px", margin: "10px" }}
-          />
-        </a>
+
       </LightGallery>
     </div>
   );

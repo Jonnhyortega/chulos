@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { HeroContainer, HeroTitle, HeroSubtitle, VideoBackground, Content } from './HeroStyles';
-import videoBckg from '../../Videos/VideoHome.mp4';
+import videoBckg from '../../Videos/VideoHomeHD.mp4';
 import { useNavigate } from 'react-router-dom';
 import { ButtonFirst } from '../Buttons/ButtonFirst/ButtonFirst';
 

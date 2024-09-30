@@ -87,7 +87,7 @@ export function LogoNavbar({ scrollingInfo }) {
         style={{ top: scrollingInfo ? "30px" : "0" }}
         $isVisible={showMainText}
       >
-        Chulos
+        Chulo's
       </Logo>
       <Tagline
         style={{ top: scrollingInfo ? "30px" : "0" }}

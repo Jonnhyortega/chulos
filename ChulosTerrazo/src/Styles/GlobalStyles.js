@@ -44,7 +44,7 @@ export const GlobalStyles = createGlobalStyle`
         }
         
         ::-webkit-scrollbar-thumb {
-          background: var(--silverFull1);
+          background: var(--silverFull5);
           border-radius: 3px;
           }
           
