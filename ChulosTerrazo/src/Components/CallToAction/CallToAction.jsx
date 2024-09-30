@@ -1,6 +1,6 @@
 import React from "react";
 import { WhatsAppLink, WhatsAppIcon } from "./CallToActionStyles";
-import logo from "../../assets/imgs/logoWsp1.png";
+import logo from "../../imgs/logoWsp1.png";
 
 export const CallToAction = () => {
   return (
