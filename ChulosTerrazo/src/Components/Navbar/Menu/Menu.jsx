@@ -12,11 +12,24 @@ import {
   SearchContainer,
 } from "./MenuStyles";
 
-export function Menu({ isMenuOpen, closeMenu, isDropdownOpen, toggleDropdown }) {
+export function Menu({
+  isMenuOpen,
+  closeMenu,
+  isDropdownOpen,
+  toggleDropdown,
+  scrollingInfo,
+}) {
   return (
     <>
-      <Overlay className={isMenuOpen ? "open" : ""} onClick={closeMenu} />
-      <MenuContainer className={isMenuOpen ? "open" : "closed"}>
+      <Overlay
+        style={{ top: scrollingInfo ? "48px" : "0" }}
+        className={isMenuOpen ? "open" : ""}
+        onClick={closeMenu}
+      />
+      <MenuContainer
+        style={{ top: scrollingInfo ? "48px" : "0" }}
+        className={isMenuOpen ? "open" : "closed"}
+      >
         {/* Search Container */}
         <SearchContainer>
           <SearchInput type="text" placeholder="Buscar" />
@@ -36,7 +49,11 @@ export function Menu({ isMenuOpen, closeMenu, isDropdownOpen, toggleDropdown }) 
         {/* Dropdown Menu */}
         <Dropdown className={isDropdownOpen ? "open" : ""}>
           <DropdownMenu>
-            <MenuItem as={NavLink} to="/productos/divisores" onClick={closeMenu}>
+            <MenuItem
+              as={NavLink}
+              to="/productos/divisores"
+              onClick={closeMenu}
+            >
               Divisores
             </MenuItem>
             <MenuItem as={NavLink} to="/productos/sillas" onClick={closeMenu}>

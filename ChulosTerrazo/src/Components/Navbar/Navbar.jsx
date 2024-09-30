@@ -3,11 +3,7 @@ import { NavLink } from "react-router-dom";
 import { FaShoppingBag } from "react-icons/fa";
 import { LogoNavbar } from "./LogoNavbar/LogoNavbar";
 import { Menu } from "./Menu/Menu";
-import {
-  NavbarContainer,
-  HamburgerMenu,
-  ToggleCart,
-} from "./NavbarStyles";
+import { NavbarContainer, HamburgerMenu, ToggleCart } from "./NavbarStyles";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -54,6 +50,7 @@ const Navbar = () => {
           closeMenu={closeMenu}
           isDropdownOpen={isDropdownOpen}
           toggleDropdown={toggleDropdown}
+          scrollingInfo={scrollingDown}
         />
       )}
     </NavbarContainer>
