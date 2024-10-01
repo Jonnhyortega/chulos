@@ -57,15 +57,15 @@ export function Menu({
             </MenuItem>
             <MenuItem
               as={NavLink}
-              to="/tienda/divisores"
+              to="/productos/divisores"
               onClick={closeMenu}
             >
               Divisores
             </MenuItem>
-            <MenuItem as={NavLink} to="/tienda/sillas" onClick={closeMenu}>
+            <MenuItem as={NavLink} to="/productos/sillas" onClick={closeMenu}>
               Sillas
             </MenuItem>
-            <MenuItem as={NavLink} to="/tienda/espejos" onClick={closeMenu}>
+            <MenuItem as={NavLink} to="/productos/espejos" onClick={closeMenu}>
               Espejos
             </MenuItem>
             <MenuItem as={NavLink} to="/tienda/mesas-bajas" onClick={closeMenu}>

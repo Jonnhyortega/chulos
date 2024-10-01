@@ -1,9 +1,11 @@
-import React from 'react'
-
+import React from "react";
+import {Gallery} from "../../Components/LightGallery/LightGallery"
+import {DivWrapper, TitleDiv} from "./DivisoresStyles"
 export default function Divisores() {
   return (
-    <div>
-      DIVISORES
-    </div>
-  )
+    <DivWrapper>
+      <TitleDiv>Divisores</TitleDiv>
+      <Gallery />
+    </DivWrapper>
+  );
 }

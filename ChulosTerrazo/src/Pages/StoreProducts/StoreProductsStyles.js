@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
-export const StoreWrapper = styled.div``;
+export const StoreWrapper = styled.div`min-height: 100vh;`;
 export const ButtonContainer = styled.div`
   display: flex;
   align-items: center;

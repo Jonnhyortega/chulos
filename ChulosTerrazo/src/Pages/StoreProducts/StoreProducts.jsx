@@ -12,13 +12,13 @@ import {
 const StoreProducts = () => {
   return (
     <StoreWrapper>
-      <ButtonContainer>
+      {/* <ButtonContainer>
         <StyledButton to="divisores">Divisores</StyledButton>
         <StyledButton to="sillas">Sillas</StyledButton>
         <StyledButton to="espejos">Espejos</StyledButton>
         <StyledButton to="mesas-bajas">Mesas Bajas</StyledButton>
-      </ButtonContainer>
-
+      </ButtonContainer> */}
+      
       <ReactDomRoutes>
         <Route index element={<Divisores />} />
         <Route path="divisores" element={<Divisores />} />
