@@ -1,11 +1,9 @@
 import React from 'react'
 
-export function Products() {
+export default function Divisores() {
   return (
     <div>
-      
+      DIVISORES
     </div>
   )
 }
-
-export default Products;

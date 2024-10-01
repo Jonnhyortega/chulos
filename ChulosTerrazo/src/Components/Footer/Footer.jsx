@@ -55,7 +55,7 @@ export function Footer() {
             </SocialIcon>
             <SocialIcon
               target="blank"
-              href="https://www.instagram.com/chulos.wood/"
+              href="https://www.instagram.com/chulos.terrazzo?igsh=a3FkcWFnMmVlamR2"
             >
               <FaInstagram />
             </SocialIcon>

@@ -18,6 +18,7 @@ const slideOut = keyframes`
   }
 `;
 
+
 export const MenuContainer = styled.div`
   position: fixed;
   top: 0;
@@ -43,6 +44,7 @@ export const MenuContainer = styled.div`
     animation: ${slideOut} 0.5s forwards;
     opacity: 0;
   }
+    
 `;
 
 export const Overlay = styled.div`

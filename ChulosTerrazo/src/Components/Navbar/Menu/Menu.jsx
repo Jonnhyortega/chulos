@@ -11,6 +11,7 @@ import {
   SearchButton,
   SearchContainer,
 } from "./MenuStyles";
+import { useState } from "react";
 
 export function Menu({
   isMenuOpen,
@@ -19,6 +20,8 @@ export function Menu({
   toggleDropdown,
   scrollingInfo,
 }) {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <>
       <Overlay
@@ -49,20 +52,23 @@ export function Menu({
         {/* Dropdown Menu */}
         <Dropdown className={isDropdownOpen ? "open" : ""}>
           <DropdownMenu>
+            <MenuItem as={NavLink} to="/tienda" onClick={closeMenu}>
+              Ir a tienda
+            </MenuItem>
             <MenuItem
               as={NavLink}
-              to="/productos/divisores"
+              to="/tienda/divisores"
               onClick={closeMenu}
             >
               Divisores
             </MenuItem>
-            <MenuItem as={NavLink} to="/productos/sillas" onClick={closeMenu}>
+            <MenuItem as={NavLink} to="/tienda/sillas" onClick={closeMenu}>
               Sillas
             </MenuItem>
-            <MenuItem as={NavLink} to="/productos/espejos" onClick={closeMenu}>
+            <MenuItem as={NavLink} to="/tienda/espejos" onClick={closeMenu}>
               Espejos
             </MenuItem>
-            <MenuItem as={NavLink} to="/productos/mesas" onClick={closeMenu}>
+            <MenuItem as={NavLink} to="/tienda/mesas-bajas" onClick={closeMenu}>
               Mesas bajas
             </MenuItem>
           </DropdownMenu>
