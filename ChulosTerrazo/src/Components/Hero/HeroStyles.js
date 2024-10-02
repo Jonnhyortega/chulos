@@ -14,7 +14,6 @@ export const HeroContainer = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  // border:5px solid gold;
   color: #ff9900;
   text-align: center;
   width: 100%;
@@ -26,6 +25,7 @@ export const HeroContainer = styled.section`
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;
+  box-shadow: 1px 1px 5px black;
 `;
 
 export const VideoBackground = styled.video`
@@ -81,11 +81,7 @@ export const HeroSubtitle = styled.h2`
   font-size: 1.5rem;
   font-weight: 900;
   letter-spacing: 2px;
-  background: var(--silverFull1);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  // text-shadow: 1px 1px 0 white, 1px -1px 0 white, -1px 1px 0 white,
-  //   1px 1px 0 white;
+  color: black;
   position: absolute;
   top: 52%;
   right: 3%;

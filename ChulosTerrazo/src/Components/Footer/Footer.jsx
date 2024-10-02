@@ -42,7 +42,7 @@ export function Footer() {
 
         {/* Social Links */}
         <FooterColumn>
-          <FooterTitle>Síguenos</FooterTitle>
+          <FooterTitle>Seguinos</FooterTitle>
           <SocialIconsContainer>
             <SocialIcon
               target="blank"

@@ -1,12 +1,12 @@
 import React from "react";
 import { Hero } from "../../Components/Hero/Hero";
 import { HomeWrapper } from "./HomeStyles";
-import { AboutUsHome } from "../../Components/AboutUsHome/AboutUsHome";
+import Benefits from "../../Components/Benefits/Benefits";
 export function Home() {
   return (
     <HomeWrapper>
       <Hero />
-      <AboutUsHome />
+      <Benefits />
     </HomeWrapper>
   );
 }

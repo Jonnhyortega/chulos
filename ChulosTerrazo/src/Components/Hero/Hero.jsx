@@ -1,21 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { HeroContainer, HeroTitle, HeroSubtitle, VideoBackground, Content } from './HeroStyles';
-import videoBckg from '../../Videos/VideoHomeHD.mp4';
-import { useNavigate } from 'react-router-dom';
-import { ButtonFirst } from '../Buttons/ButtonFirst/ButtonFirst';
+import React, { useState, useEffect } from "react";
+import { HeroContainer, HeroTitle, HeroSubtitle, Content } from "./HeroStyles";
+import { useNavigate } from "react-router-dom";
+import { ButtonFirst } from "../Buttons/ButtonFirst/ButtonFirst";
 
 export const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleRedirect = () => {
-    navigate('/products');
+    navigate("/disenos");
   };
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 3000);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -31,7 +30,7 @@ export const Hero = () => {
       <Content $isVisible={isVisible}>
         <HeroTitle>Chulo's</HeroTitle>
         <HeroSubtitle>Diseño de interiores</HeroSubtitle>
-        <ButtonFirst content={"Ver productos"} onClick={handleRedirect} />
+        <ButtonFirst content={"Ver diseños"} work={handleRedirect} />
       </Content>
     </HeroContainer>
   );

@@ -41,7 +41,7 @@ export const ToggleCart = styled.button`
   font-size: 1.5em;
   margin-right: 1em;
   cursor: pointer;
-  color: var(--silverFull7);
+  color: var(--greenFull1);
   transition-duration: 0.6s;
 
   &:hover {

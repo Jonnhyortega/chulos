@@ -1,5 +1,5 @@
 #root {
   width: 100%;
   margin: 0 auto;
-  /* border: 10px solid gold; */
+  background-color: var(--greenFull7);
 }

@@ -25,8 +25,8 @@ const ButtonStyled = styled.button`
   }
 `;
 
-export const ButtonFirst = ({ content }) => {
-  return <ButtonStyled>{content || "Click Me!"}</ButtonStyled>;
+export const ButtonFirst = ({ content, work }) => {
+  return <ButtonStyled onClick={work}>{content || "Click Me!"}</ButtonStyled>;
 };
 
 export default ButtonFirst;

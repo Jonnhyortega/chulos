@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
-
+import { Navigate, useNavigate } from "react-router-dom";
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -69,6 +69,7 @@ const Tagline = styled.small`
 `;
 
 export function LogoNavbar({ scrollingInfo }) {
+  const hookTo = useNavigate()
   const [showMainText, setShowMainText] = useState(true);
   const [scrollDown, setScrollDown] = useState(scrollingInfo);
   useEffect(() => {
@@ -86,6 +87,7 @@ export function LogoNavbar({ scrollingInfo }) {
       <Logo
         style={{ top: scrollingInfo ? "30px" : "0" }}
         $isVisible={showMainText}
+        onClick={()=>{hookTo("/home")}}
       >
         Chulo's
       </Logo>

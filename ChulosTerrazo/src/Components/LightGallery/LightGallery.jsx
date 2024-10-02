@@ -5,15 +5,7 @@ import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-thumbnail.css";
 import lgThumbnail from "lightgallery/plugins/thumbnail";
 import lgZoom from "lightgallery/plugins/zoom";
-import img from "../../imgs/Divisores/DivisoresImg1.jpg";
-import img2 from "../../imgs/Divisores/DivisoresImg2.jpg";
-import img3 from "../../imgs/Divisores/DivisoresImg3.jpg";
-import img4 from "../../imgs/Divisores/DivisoresImg4.jpg";
-import img5 from "../../imgs/Divisores/DivisoresImg5.jpg";
-import img6 from "../../imgs/Divisores/DivisoresImg6.jpg";
-import img7 from "../../imgs/Divisores/DivisoresImg7.jpg";
-import img8 from "../../imgs/Divisores/DivisoresImg8.jpg";
-import img9 from "../../imgs/Divisores/DivisoresImg9.jpg";
+
 
 export function Gallery() {
   const onInit = () => {

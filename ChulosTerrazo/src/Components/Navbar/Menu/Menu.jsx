@@ -45,17 +45,17 @@ export function Menu({
         <MenuItem as={NavLink} to="/" onClick={closeMenu}>
           Inicio
         </MenuItem>
-        <MenuItem as="div" onClick={toggleDropdown}>
+        {/* <MenuItem as="div" onClick={toggleDropdown}>
           Productos <SlArrowDown />
-        </MenuItem>
+        </MenuItem> */}
+        {/* <MenuItem as={NavLink} to="/tienda">
+          Ir a tienda
+        </MenuItem> */}
 
         {/* Dropdown Menu */}
         <Dropdown className={isDropdownOpen ? "open" : ""}>
           <DropdownMenu>
-            <MenuItem as={NavLink} to="/tienda" onClick={closeMenu}>
-              Ir a tienda
-            </MenuItem>
-            <MenuItem
+            {/* <MenuItem
               as={NavLink}
               to="/productos/divisores"
               onClick={closeMenu}
@@ -70,12 +70,12 @@ export function Menu({
             </MenuItem>
             <MenuItem as={NavLink} to="/tienda/mesas-bajas" onClick={closeMenu}>
               Mesas bajas
-            </MenuItem>
+            </MenuItem> */}
           </DropdownMenu>
         </Dropdown>
 
         {/* Additional Menu Items */}
-        <MenuItem as={NavLink} to="/nuestros-disenos" onClick={closeMenu}>
+        <MenuItem as={NavLink} to="/disenos" onClick={closeMenu}>
           Nuestros Diseños
         </MenuItem>
         <MenuItem as={NavLink} to="/sobre-nosotros" onClick={closeMenu}>
