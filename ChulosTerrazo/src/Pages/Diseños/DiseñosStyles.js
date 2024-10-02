@@ -1,25 +1,23 @@
 import styled, { css, keyframes } from "styled-components";
 
-// Keyframes para las animaciones de entrada de la imagen
 const slideInRight = keyframes`
   from {
-    transform: translateX(100%); /* Comienza fuera del contenedor por la derecha */
+    transform: translateX(100%); 
   }
   to {
-    transform: translateX(0); /* Llega a la posición original */
+    transform: translateX(0); 
   }
 `;
 
 const slideInLeft = keyframes`
   from {
-    transform: translateX(-100%); /* Comienza fuera del contenedor por la izquierda */
+    transform: translateX(-100%); 
   }
   to {
-    transform: translateX(0); /* Llega a la posición original */
+    transform: translateX(0); 
   }
 `;
 
-// Keyframes para la animación de salida de la imagen
 const slideOutLeft = keyframes`
   from {
     transform: translateX(0); /* Comienza en la posición original */
@@ -31,26 +29,33 @@ const slideOutLeft = keyframes`
 
 const slideOutRight = keyframes`
   from {
-    transform: translateX(0); /* Comienza en la posición original */
+    transform: translateX(0);
   }
   to {
-    transform: translateX(100%); /* Sale hacia la derecha */
+    transform: translateX(100%); 
   }
 `;
 
-// Contenedor principal de la galería de diseños
 export const DiseñosWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 60px 10px;
-  background-color: #f3f4f6;
+  background-color: transparent;
   min-height: 100vh;
 
   h2 {
     font-size: 32px;
     margin-bottom: 30px;
-    color: #333;
+    background: linear-gradient(
+      to bottom,
+      var(--greenFull1),
+      var(--greenFull3)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: ${slideOutLeft} 1s ease-in-out;
+    font-weight: bold;
   }
 `;
 
@@ -60,6 +65,11 @@ export const Gallery = styled.div`
   gap: 20px;
   width: 90%;
   max-width: 1200px;
+  @media (max-width: 568px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 `;
 
 export const ImageCard = styled.div`
@@ -77,6 +87,9 @@ export const ImageCard = styled.div`
 
   &:hover img {
     opacity: 0.8;
+  }
+  @media (max-width: 568px) {
+    width: 150px;
   }
 `;
 

@@ -26,18 +26,16 @@ export function Footer() {
       <FooterContent>
         <FooterColumn>
           <FooterTitle>Servicios</FooterTitle>
-          <FooterLink href="#">Diseño de Interiores</FooterLink>
-          <FooterLink href="#">Renovación de Espacios</FooterLink>
-          <FooterLink href="#">Consultoría de Estilo</FooterLink>
-          <FooterLink href="#">Iluminación</FooterLink>
+          <FooterLink >Diseño de Interiores</FooterLink>
+          <FooterLink >Renovación de Espacios</FooterLink>
+          <FooterLink >Consultoría de Estilo</FooterLink>
         </FooterColumn>
 
         <FooterColumn>
           <FooterTitle>Contáctanos</FooterTitle>
-          <FooterLink href="#">Soporte</FooterLink>
+          <FooterLink href="https://wa.me/5491158227373">Soporte</FooterLink>
           <FooterLink href="#">Preguntas Frecuentes</FooterLink>
           <FooterLink href="#">Envía tu Consulta</FooterLink>
-          <FooterLink href="#">Colabora con Nosotros</FooterLink>
         </FooterColumn>
 
         {/* Social Links */}
@@ -65,9 +63,9 @@ export function Footer() {
             >
               <FaTiktok />
             </SocialIcon>
-            <SocialIcon target="blank" href="https://wa.me/5491158227373">
+            {/* <SocialIcon target="blank" href="https://wa.me/5491158227373">
               <FaWhatsapp />
-            </SocialIcon>
+            </SocialIcon> */}
           </SocialIconsContainer>
         </FooterColumn>
       </FooterContent>
