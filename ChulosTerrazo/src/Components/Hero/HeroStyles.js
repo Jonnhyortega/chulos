@@ -10,14 +10,13 @@ const fadeIn = keyframes`
 `;
 
 export const HeroContainer = styled.section`
+  padding: 5em 0 0 0;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: end;
-  color: #ff9900;
   text-align: center;
   width: 100%;
-  height: 100vh;
   overflow: hidden;
   background-image: url(${bckgImg});
   background-size: cover;
@@ -25,6 +24,7 @@ export const HeroContainer = styled.section`
   background-repeat: no-repeat;
   background-position: center;
   box-shadow: 1px 1px 5px black;
+  margin: 0;
 
   &::before {
     content: "";
@@ -44,26 +44,25 @@ export const Content = styled.div`
     ease-in-out;
   transition: opacity 0.5s ease;
   z-index: 2;
+  margin: 0;
 
   button {
     margin: 0 0 3em 0;
   }
 
-  @media (max-width: 568px) {
-    h1 {
-      font-size: 7rem;
-    }
-    h2 {
-      font-size: 2rem;
-    }
-    h2 > strong {
-      font-size: 1.6rem;
-    }
+  @media(max-width: 912px){
+    h2, h2 > strong{
+      font-size: 1.2rem;
+      }
+
+  }
+
+  @media(max-width: 768px){
   }
 `;
 
 export const HeroTitle = styled.h1`
-  font-size: 10rem;
+  font-size: 6rem;
   font-weight: bold;
   padding: 0;
   margin: 0;
@@ -71,12 +70,10 @@ export const HeroTitle = styled.h1`
   font-family: "Dancing Script", cursive;
   color: var(--silverFull7);
   text-shadow: -2px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-  1px 1px 0 #000;
-  // filter: drop-shadow(1px 1px 5px var(--silverFull4));
-  `;
-  
-  export const HeroSubtitle = styled.h2`
-  margin: 0 0 2em 0;
+    1px 1px 0 #000;
+`;
+
+export const HeroSubtitle = styled.h2`
   font-size: 2rem;
   letter-spacing: 2px;
   padding: 0 4em;
@@ -84,9 +81,11 @@ export const HeroTitle = styled.h1`
   font-family: "Roboto", sans-serif;
   text-align: left;
   font-weight: 300;
+  line-height:1;
   strong {
     display: inline-block;
     color: var(--greenFull7);
+    font-weight: 400px;
     font-size: 1.8rem;
     font-weight: 200;
     font-family: "Poppins", sans-serif;

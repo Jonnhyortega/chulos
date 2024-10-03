@@ -35,15 +35,22 @@ export const HamburgerMenu = styled.button`
 
 export const ToggleCart = styled.button`
   padding-bottom: 10px;
-  background: none;
+  background: transparent;
   border: none;
   font-size: 1.5em;
   margin-right: 1em;
   cursor: pointer;
-  color: transparent;
+  color: var(--greenFull7);
   transition-duration: 0.6s;
 
   &:hover {
-    transform: scale(1.1);
+    color: var(--greenFull5);
   }
+`;
+
+export const CartCount = styled.span`
+  position: absolute;
+  right: 15px;
+  font-size: 12px;
+  font-weight: bold;
 `;

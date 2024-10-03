@@ -1,18 +1,33 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux"; // Importar useSelector
 import { FaShoppingBag } from "react-icons/fa";
 import { LogoNavbar } from "./LogoNavbar/LogoNavbar";
 import { Menu } from "./Menu/Menu";
-import { NavbarContainer, HamburgerMenu, ToggleCart } from "./NavbarStyles";
-
+import {
+  NavbarContainer,
+  HamburgerMenu,
+  ToggleCart,
+  CartCount,
+} from "./NavbarStyles";
+import { Cart } from "../Cart/Cart";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [scrollingDown, setScrollingDown] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const toggleCart = () => {
+    setIsCartOpen(!isCartOpen);
+  };
+  const cartItemsCount = useSelector((state) =>
+    state.cart.cartItems.reduce((total, item) => total + item.quantity, 0)
+  );
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
   const closeMenu = () => {
     setIsMenuOpen(false);
@@ -39,7 +54,7 @@ const Navbar = () => {
         transition: "transform 0.3s ease",
         alignItems: scrollingDown ? "end" : "center",
         background: scrollingDown ? "transparent" : "var(--greenFull1)",
-          borderBottom: scrollingDown ? "1px solid var(--silverFull7)" : "none"
+        borderBottom: scrollingDown ? "1px solid var(--silverFull7)" : "none",
       }}
     >
       <HamburgerMenu
@@ -51,8 +66,15 @@ const Navbar = () => {
         &#9776;
       </HamburgerMenu>
       <LogoNavbar scrollingInfo={scrollingDown} />
-      <ToggleCart>
+      <ToggleCart onClick={toggleCart}>
         <FaShoppingBag />
+        <CartCount
+          style={{
+            top: scrollingDown ? "60px" : "18px",
+          }}
+        >
+          {cartItemsCount}
+        </CartCount>
       </ToggleCart>
       {isMenuOpen && (
         <Menu
@@ -63,6 +85,7 @@ const Navbar = () => {
           scrollingInfo={scrollingDown}
         />
       )}
+      {isCartOpen && <Cart />}
     </NavbarContainer>
   );
 };
