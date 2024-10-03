@@ -6,13 +6,13 @@ export const NavbarContainer = styled.div`
   left: 0;
   width: 100%;
   height: 100px;
-  background: var(--greenFull1);
+  background: transparent;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: space-between;
   z-index: 1000;
-  appearance: none; 
+  appearance: none;
 `;
 
 export const Discount = styled.div`
@@ -22,15 +22,15 @@ export const Discount = styled.div`
 export const HamburgerMenu = styled.button`
   background: none;
   border: none;
-  font-size: 1.5em;
+  font-size: 1.2em;
+  padding: 0 1em;
   margin-left: 1em;
-
   cursor: pointer;
-  padding-bottom: 10px;
-  color: var(--silverFull7);
+  color: var(--grennFull1);
   transition-duration: 0.6s;
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.4);
+    color: var(--greenFull1)
   }
 `;
 
@@ -41,7 +41,7 @@ export const ToggleCart = styled.button`
   font-size: 1.5em;
   margin-right: 1em;
   cursor: pointer;
-  color: var(--greenFull1);
+  color: transparent;
   transition-duration: 0.6s;
 
   &:hover {

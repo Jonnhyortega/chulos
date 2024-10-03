@@ -9,11 +9,9 @@ import {
   CloseButton,
   ArrowButton,
 } from "./DiseñosStyles";
-import {
-  AiOutlineArrowRight,
-  AiOutlineArrowLeft,
-  AiFillApi,
-} from "react-icons/ai";
+import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
+import { RiCloseLargeLine } from "react-icons/ri";
+import { ButtonFirst } from "../../Components/Buttons/ButtonFirst/ButtonFirst";
 import img1 from "../../imgs/Divisores/DivisoresImg1.jpg";
 import img2 from "../../imgs/Divisores/DivisoresImg2.jpg";
 import img3 from "../../imgs/Divisores/DivisoresImg3.jpg";
@@ -29,7 +27,6 @@ export default function Diseños() {
 
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-
   const openOverlay = (index) => {
     setCurrentIndex(index);
     setIsOpen(true);
@@ -44,7 +41,9 @@ export default function Diseños() {
   };
 
   const goToPrevImage = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + images.length) % images.length
+    );
   };
 
   useEffect(() => {
@@ -77,13 +76,28 @@ export default function Diseños() {
     }
   };
 
+  const redirectToWhatSapp = () => {
+    window.open("https://wa.me/5491158227373", "_blank");
+  };
+
+  const contentCTA = () =>{
+
+  }
+
   return (
     <DiseñosWrapper>
       <h2>Divisores de Madera</h2>
+      <p>
+        Fabricamos divisores separadores de ambiente elaborados con madera
+        enchapada de primera calidad y melamina. Nuestros diseños incluyen
+        varillas móviles que permiten regular de manera eficiente la entrada de
+        luz, brindando tanto funcionalidad como estética a cualquier espacio.
+      </p>
+      <ButtonFirst content={"Pedir cotizacion"} work={redirectToWhatSapp} />
       <Gallery>
         {images.map((img, index) => (
           <ImageCard key={index} onClick={() => openOverlay(index)}>
-            <Image src={img} alt={`Divisor ${index + 1}`} />
+            <Image loading="lazy" src={img} alt={`Divisor ${index + 1}`} />
           </ImageCard>
         ))}
       </Gallery>
@@ -91,12 +105,13 @@ export default function Diseños() {
       {isOpen && (
         <Overlay onClick={handleOverlayClick}>
           <CloseButton onClick={closeOverlay}>
-            <AiFillApi />
+            <RiCloseLargeLine />
           </CloseButton>
           <ArrowButton left onClick={goToPrevImage}>
             <AiOutlineArrowLeft />
           </ArrowButton>
           <OverlayImage
+            loading="lazy"
             src={images[currentIndex]}
             alt={`Divisor ${currentIndex + 1}`}
           />

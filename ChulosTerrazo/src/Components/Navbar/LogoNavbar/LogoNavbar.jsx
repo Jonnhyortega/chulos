@@ -49,27 +49,27 @@ const Logo = styled.h1`
   background: #17202a;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  position: absolute;
-  top: 0;
   animation: ${({ $isVisible }) => ($isVisible ? fadeIn : fadeOut)} 1s
     ease-in-out;
   opacity: ${({ $isVisible }) => ($isVisible ? 1 : 0)};
   transition: opacity 0.8s ease-in-out;
+  cursor: pointer;
+  position: absolute;
 `;
 
 const Tagline = styled.small`
-  font-size: 1rem;
-  color: white;
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
+  font-size: .7rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
   opacity: ${({ $isVisible }) => ($isVisible ? 1 : 0)};
   animation: ${({ $isVisible }) => ($isVisible ? slideInLeft : fadeOut)} 1s
     ease-in-out;
   transition: opacity 0.8s ease-in-out;
+  position: absolute;
 `;
 
 export function LogoNavbar({ scrollingInfo }) {
-  const hookTo = useNavigate()
+  const hookTo = useNavigate();
   const [showMainText, setShowMainText] = useState(true);
   const [scrollDown, setScrollDown] = useState(scrollingInfo);
   useEffect(() => {
@@ -78,24 +78,28 @@ export function LogoNavbar({ scrollingInfo }) {
         setShowMainText((prevShowMainText) => !prevShowMainText);
       },
       showMainText ? 4000 : 3000
-    ); // Alterna entre 4 y 3 segundos
+    ); 
     return () => clearInterval(intervalId);
   }, [showMainText]);
 
   return (
-    <LogoContent style={{justifyContent: scrollingInfo ? "end" : "center"}}>
+    <LogoContent style={{ justifyContent: scrollingInfo ? "end" : "center" }}>
       <Logo
-        style={{ top: scrollingInfo ? "30px" : "0" }}
+        style={{ top: scrollingInfo ? "25%" : "0" }}
         $isVisible={showMainText}
-        onClick={()=>{hookTo("/home")}}
+        onClick={() => {
+          hookTo("/home");
+        }}
       >
         Chulo's
       </Logo>
       <Tagline
-        style={{ top: scrollingInfo ? "30px" : "0" }}
+        style={{
+          transform: scrollingInfo ? "translateY(-48%)" : "translateY(0)",
+        }}
         $isVisible={!showMainText}
       >
-        Diseño de interiores
+        decoDesign
       </Tagline>
     </LogoContent>
   );

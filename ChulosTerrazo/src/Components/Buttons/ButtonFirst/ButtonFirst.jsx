@@ -3,12 +3,13 @@ import styled from "styled-components";
 
 const ButtonStyled = styled.button`
   background: var(--greenFull1);
-  color: white;
+  color: var(--silverFull7);
   border: none;
   border-radius: 10px;
   padding: 12px 24px;
   font-size: 1.1em;
   font-weight: 600;
+  font-family: "Poppins", sans-serif;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);

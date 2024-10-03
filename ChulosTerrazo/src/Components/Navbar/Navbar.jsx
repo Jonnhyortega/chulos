@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import { NavLink } from "react-router-dom";
 import { FaShoppingBag } from "react-icons/fa";
 import { LogoNavbar } from "./LogoNavbar/LogoNavbar";
 import { Menu } from "./Menu/Menu";
@@ -39,9 +38,17 @@ const Navbar = () => {
         transform: scrollingDown ? "translateY(-48%)" : "translateY(0)",
         transition: "transform 0.3s ease",
         alignItems: scrollingDown ? "end" : "center",
+        background: scrollingDown ? "transparent": "var(--greenFull1)"
       }}
     >
-      <HamburgerMenu onClick={toggleMenu}>&#9776;</HamburgerMenu>
+      <HamburgerMenu
+        style={{
+          marginBottom: scrollingDown ? "15px" : "0",
+        }}
+        onClick={toggleMenu}
+      >
+        &#9776;
+      </HamburgerMenu>
       <LogoNavbar scrollingInfo={scrollingDown} />
       <ToggleCart>
         <FaShoppingBag />

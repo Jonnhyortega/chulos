@@ -12,13 +12,12 @@ const fadeIn = keyframes`
 export const HeroContainer = styled.section`
   position: relative;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: end;
   color: #ff9900;
   text-align: center;
   width: 100%;
-  height: 85vh;
-  margin-top: 70px;
+  height: 100%;
   overflow: hidden;
   background-image: url(${bckgImg});
   background-size: cover;
@@ -26,14 +25,17 @@ export const HeroContainer = styled.section`
   background-repeat: no-repeat;
   background-position: center;
   box-shadow: 1px 1px 5px black;
-`;
 
-export const VideoBackground = styled.video`
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: none;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
 `;
 
 export const Content = styled.div`
@@ -41,55 +43,59 @@ export const Content = styled.div`
   animation: ${({ $isVisible }) => ($isVisible ? fadeIn : "none")} 2s
     ease-in-out;
   transition: opacity 0.5s ease;
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -80%);
   z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0.4em;
-  // GLASMORPHISM
-  // backdrop-filter: blur(11px) saturate(200%);
-  // -webkit-backdrop-filter: blur(11px) saturate(200%);
-  // background-color: rgba(17, 25, 40, 0.66);
-  // border-radius: 12px;
-  // border: 1px solid rgba(255, 255, 255, 0.525);
-  // GLASMORPHISM
+
+  button {
+    margin: 0 0 3em 0;
+  }
+
+  @media (max-width: 568px) {
+    h1 {
+      font-size: 7rem;
+    }
+      h2{
+      font-size: 2rem;
+      }
+      h2>strong{
+      font-size: 1.6rem;
+      }
+  }
 `;
 
 export const HeroTitle = styled.h1`
-  font-size: 7rem;
+  font-size: 10rem;
   font-weight: bold;
+  padding: 0;
   letter-spacing: 3px;
   font-family: "Dancing Script", cursive;
-  // font-family: "Billabong";
-  color: white;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+  color: var(--greenFull1);
+  text-shadow: -6px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
-  @media (max-width: 768px) {
-    font-size: 4rem;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 4rem;
-  }
+  filter: drop-shadow(1px 1px 5px var(--silverFull4));
 `;
 
 export const HeroSubtitle = styled.h2`
-  font-size: 1.5rem;
-  font-weight: 900;
+  font-size: 2.5rem;
   letter-spacing: 2px;
-  color: black;
-  position: absolute;
-  top: 52%;
-  right: 3%;
-  @media (max-width: 768px) {
-    font-size: 1.2rem;
-  }
+  padding: 0 4em;
+  color: var(--silverFull6);
+  font-family: "Roboto", sans-serif;
+  text-align: left;
+  strong {
+    display: inline-block;
+    color: var(--greenFull7);
+    font-size: 2rem;
+    font-family: "Poppins", sans-serif;
+}
+`;
 
-  @media (max-width: 480px) {
-    font-size: 1rem;
-  }
+export const ImageSlider = styled.div`
+  height: 100vh;
+`;
+
+export const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 1s ease;
 `;

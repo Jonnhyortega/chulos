@@ -78,7 +78,7 @@ export function Menu({
         <MenuItem as={NavLink} to="/disenos" onClick={closeMenu}>
           Nuestros Diseños
         </MenuItem>
-        <MenuItem as={NavLink} to="/sobre-nosotros" onClick={closeMenu}>
+        <MenuItem as={NavLink} to="/about-us" onClick={closeMenu}>
           Sobre Nosotros
         </MenuItem>
       </MenuContainer>

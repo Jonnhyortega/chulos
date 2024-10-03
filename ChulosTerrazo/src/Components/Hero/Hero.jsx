@@ -21,15 +21,12 @@ export const Hero = () => {
 
   return (
     <HeroContainer>
-      {/* Video de fondo */}
-      {/* <VideoBackground autoPlay loop muted>
-        <source src={videoBckg} type="video/mp4" />
-        Tu navegador no soporta el video.
-      </VideoBackground> */}
-
       <Content $isVisible={isVisible}>
-        <HeroTitle>Chulo's</HeroTitle>
-        <HeroSubtitle>Diseño de interiores</HeroSubtitle>
+        <HeroTitle>Chulo's </HeroTitle>
+        <HeroSubtitle>
+          Transforma tu espacio con elegancia y funcionalidad con nuestros
+          <strong> Divisores de madera de primera calidad.</strong>
+        </HeroSubtitle>
         <ButtonFirst content={"Ver diseños"} work={handleRedirect} />
       </Content>
     </HeroContainer>

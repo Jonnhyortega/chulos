@@ -17,8 +17,8 @@ const rotateAndScale = keyframes`
 
 export const WhatsAppLink = styled.a`
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 0px;
+  right: 10px;
   text-decoration: none;
   z-index: 2;
   animation: ${rotateAndScale} 10s linear infinite; 

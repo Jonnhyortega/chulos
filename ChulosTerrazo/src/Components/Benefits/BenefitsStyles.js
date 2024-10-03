@@ -19,17 +19,12 @@ export const BenefitsWrapper = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  // background-image: url(${benefitsBckg});
-  //   background-size: cover;
-  //   background-attachment: fixed;
-  //   background-repeat: no-repeat;
-  //   background-position: center;
-  background: linear-gradient(
-    to top,
-    var(--greenFull1),
-    var(--silverFull7),
-    var(--greenFull7)
-  );
+  // background: linear-gradient(
+  //   to top,
+  //   var(--greenFull1),
+  //   var(--silverFull7),
+  //   var(--greenFull7)
+  // );
   @media (max-width: 768px) {
     padding: 1em;
   }
