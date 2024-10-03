@@ -38,7 +38,8 @@ const Navbar = () => {
         transform: scrollingDown ? "translateY(-48%)" : "translateY(0)",
         transition: "transform 0.3s ease",
         alignItems: scrollingDown ? "end" : "center",
-        background: scrollingDown ? "transparent": "var(--greenFull1)"
+        background: scrollingDown ? "transparent" : "var(--greenFull1)",
+          borderBottom: scrollingDown ? "1px solid var(--silverFull7)" : "none"
       }}
     >
       <HamburgerMenu
