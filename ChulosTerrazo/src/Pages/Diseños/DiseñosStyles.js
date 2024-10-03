@@ -65,8 +65,8 @@ export const DiseñosWrapper = styled.div`
     margin-bottom: 20px;
     background: linear-gradient(
       to bottom,
-      var(--greenFull1),
-      var(--greenFull3)
+      black,
+      var(--greenFull1)
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

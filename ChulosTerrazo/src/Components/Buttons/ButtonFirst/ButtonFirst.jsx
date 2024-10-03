@@ -14,6 +14,7 @@ const ButtonStyled = styled.button`
   transition: all 0.3s ease-in-out;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   width: 200px;
+  margin: 0;
   &:hover {
     transform: translateY(-3px);
     background: var(--greenFull3);

@@ -48,9 +48,9 @@ export function Menu({
         {/* <MenuItem as="div" onClick={toggleDropdown}>
           Productos <SlArrowDown />
         </MenuItem> */}
-        {/* <MenuItem as={NavLink} to="/tienda">
+        <MenuItem as={NavLink} to="/tienda" onClick={closeMenu}>
           Ir a tienda
-        </MenuItem> */}
+        </MenuItem>
 
         {/* Dropdown Menu */}
         <Dropdown className={isDropdownOpen ? "open" : ""}>

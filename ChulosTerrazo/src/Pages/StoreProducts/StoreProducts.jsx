@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes as ReactDomRoutes, Route, NavLink } from "react-router-dom";
-import Divisores from "../Divisores/Divisores";
+import Products from "../Products/Products";
 import Sillas from "../Sillas/Sillas";
 import Espejos from "../Espejos/Espejos";
 import MesasBajas from "../MesasBajas/MesasBajas";
@@ -18,13 +18,13 @@ const StoreProducts = () => {
         <StyledButton to="espejos">Espejos</StyledButton>
         <StyledButton to="mesas-bajas">Mesas Bajas</StyledButton>
       </ButtonContainer> */}
-      
+
       <ReactDomRoutes>
-        <Route index element={<Divisores />} />
-        <Route path="divisores" element={<Divisores />} />
+        <Route index element={<Products />} />
+        {/* <Route path="Products" element={<Products />} />
         <Route path="sillas" element={<Sillas />} />
         <Route path="espejos" element={<Espejos />} />
-        <Route path="mesas-bajas" element={<MesasBajas />} />
+        <Route path="mesas-bajas" element={<MesasBajas />} /> */}
       </ReactDomRoutes>
     </StoreWrapper>
   );

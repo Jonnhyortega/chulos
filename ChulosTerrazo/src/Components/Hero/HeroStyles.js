@@ -17,7 +17,7 @@ export const HeroContainer = styled.section`
   color: #ff9900;
   text-align: center;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   overflow: hidden;
   background-image: url(${bckgImg});
   background-size: cover;
@@ -53,12 +53,12 @@ export const Content = styled.div`
     h1 {
       font-size: 7rem;
     }
-      h2{
+    h2 {
       font-size: 2rem;
-      }
-      h2>strong{
+    }
+    h2 > strong {
       font-size: 1.6rem;
-      }
+    }
   }
 `;
 
@@ -66,27 +66,31 @@ export const HeroTitle = styled.h1`
   font-size: 10rem;
   font-weight: bold;
   padding: 0;
+  margin: 0;
   letter-spacing: 3px;
   font-family: "Dancing Script", cursive;
-  color: var(--greenFull1);
-  text-shadow: -6px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-    1px 1px 0 #000;
-  filter: drop-shadow(1px 1px 5px var(--silverFull4));
-`;
-
-export const HeroSubtitle = styled.h2`
-  font-size: 2.5rem;
+  color: var(--silverFull7);
+  text-shadow: -2px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+  1px 1px 0 #000;
+  // filter: drop-shadow(1px 1px 5px var(--silverFull4));
+  `;
+  
+  export const HeroSubtitle = styled.h2`
+  margin: 0 0 2em 0;
+  font-size: 2rem;
   letter-spacing: 2px;
   padding: 0 4em;
   color: var(--silverFull6);
   font-family: "Roboto", sans-serif;
   text-align: left;
+  font-weight: 300;
   strong {
     display: inline-block;
     color: var(--greenFull7);
-    font-size: 2rem;
+    font-size: 1.8rem;
+    font-weight: 200;
     font-family: "Poppins", sans-serif;
-}
+  }
 `;
 
 export const ImageSlider = styled.div`

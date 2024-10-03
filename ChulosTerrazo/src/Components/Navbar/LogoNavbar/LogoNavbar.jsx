@@ -99,7 +99,7 @@ export function LogoNavbar({ scrollingInfo }) {
         }}
         $isVisible={!showMainText}
       >
-        decoDesign
+        Design
       </Tagline>
     </LogoContent>
   );
