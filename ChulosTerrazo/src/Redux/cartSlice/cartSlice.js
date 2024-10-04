@@ -1,40 +1,47 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { addItemToCart, removeItemFromCart, resetShippingCost } from "./carUtils";
 
+const SHIPPING_COST = 6.55;
 const INITIAL_STATE = {
   cartItems: [],
+  shippingCost: 0,
+  hidden: true,
 };
 
-export const cartSlice = createSlice({
+const cartSlice = createSlice({
   name: "cart",
   initialState: INITIAL_STATE,
   reducers: {
     addToCart: (state, action) => {
-      const existingItem = state.cartItems.find(
-        (item) => item.id === action.payload.id
-      );
-
-      if (existingItem) {
-        existingItem.quantity += 1;
-      } else {
-        state.cartItems.push({ ...action.payload, quantity: 1 });
-      }
-    },
+      state.cartItems = addItemToCart(state.cartItems || [], action.payload);
+      state.shippingCost = SHIPPING_COST;
+    },    
     removeFromCart: (state, action) => {
-      const index = state.cartItems.findIndex((item) => item.id === action.payload.id);
-
-      if (index !== -1) {
-        state.cartItems[index].quantity -= 1;
-        if (state.cartItems[index].quantity === 0) {
-          state.cartItems.splice(index, 1);
-        }
-      }
+      state.cartItems = removeItemFromCart(state.cartItems, { id: action.payload });
+      state.shippingCost = resetShippingCost(state.cartItems, SHIPPING_COST);
     },
     clearCart: (state) => {
       state.cartItems = [];
+      state.shippingCost = 0;
+    },
+    toggleHiddenCart: (state) => {
+      state.hidden = !state.hidden;
+    },
+    increaseQuantity: (state, action) => {
+      const item = state.cartItems.find(item => item.id === action.payload);
+      if (item) {
+        item.quantity += 1;
+      }
+    },
+    decreaseQuantity: (state, action) => {
+      const item = state.cartItems.find(item => item.id === action.payload);
+      if (item && item.quantity > 1) {
+        item.quantity -= 1;
+      }
     },
   },
 });
 
-export const { addToCart, removeFromCart, clearCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, clearCart, toggleHiddenCart, increaseQuantity, decreaseQuantity } = cartSlice.actions;
 
 export default cartSlice.reducer;

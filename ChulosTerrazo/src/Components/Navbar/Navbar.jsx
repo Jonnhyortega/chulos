@@ -1,5 +1,6 @@
+// Navbar.js
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux"; // Importar useSelector
+import { useSelector, useDispatch } from "react-redux";
 import { FaShoppingBag } from "react-icons/fa";
 import { LogoNavbar } from "./LogoNavbar/LogoNavbar";
 import { Menu } from "./Menu/Menu";
@@ -9,30 +10,27 @@ import {
   ToggleCart,
   CartCount,
 } from "./NavbarStyles";
-import { Cart } from "../Cart/Cart";
-const Navbar = () => {
+import { toggleHiddenCart } from "../../Redux/cartSlice/cartSlice"; // Importar acción correctamente
+
+export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [scrollingDown, setScrollingDown] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [isCartOpen, setIsCartOpen] = useState(false);
 
-  const toggleCart = () => {
-    setIsCartOpen(!isCartOpen);
-  };
   const cartItemsCount = useSelector((state) =>
     state.cart.cartItems.reduce((total, item) => total + item.quantity, 0)
   );
+  const dispatch = useDispatch();
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
   const closeMenu = () => {
     setIsMenuOpen(false);
     setIsDropdownOpen(false);
   };
+
+  const toggleCart = () => dispatch(toggleHiddenCart());
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,9 +40,7 @@ const Navbar = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
   return (
@@ -58,9 +54,7 @@ const Navbar = () => {
       }}
     >
       <HamburgerMenu
-        style={{
-          marginBottom: scrollingDown ? "15px" : "0",
-        }}
+        style={{ marginBottom: scrollingDown ? "15px" : "0" }}
         onClick={toggleMenu}
       >
         &#9776;
@@ -68,11 +62,7 @@ const Navbar = () => {
       <LogoNavbar scrollingInfo={scrollingDown} />
       <ToggleCart onClick={toggleCart}>
         <FaShoppingBag />
-        <CartCount
-          style={{
-            top: scrollingDown ? "60px" : "18px",
-          }}
-        >
+        <CartCount style={{ top: scrollingDown ? "60px" : "18px" }}>
           {cartItemsCount}
         </CartCount>
       </ToggleCart>
@@ -85,7 +75,6 @@ const Navbar = () => {
           scrollingInfo={scrollingDown}
         />
       )}
-      {isCartOpen && <Cart />}
     </NavbarContainer>
   );
 };

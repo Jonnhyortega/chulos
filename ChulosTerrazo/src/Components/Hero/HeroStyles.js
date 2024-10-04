@@ -25,7 +25,11 @@ export const HeroContainer = styled.section`
   background-position: center;
   box-shadow: 1px 1px 5px black;
   margin: 0;
+  height: 90vh;
 
+  @media (max-width: 968px) {
+    height: auto;
+  }
   &::before {
     content: "";
     position: absolute;
@@ -50,14 +54,14 @@ export const Content = styled.div`
     margin: 0 0 3em 0;
   }
 
-  @media(max-width: 912px){
-    h2, h2 > strong{
+  @media (max-width: 912px) {
+    h2,
+    h2 > strong {
       font-size: 1.2rem;
-      }
-
+    }
   }
 
-  @media(max-width: 768px){
+  @media (max-width: 768px) {
   }
 `;
 
@@ -81,7 +85,7 @@ export const HeroSubtitle = styled.h2`
   font-family: "Roboto", sans-serif;
   text-align: left;
   font-weight: 300;
-  line-height:1;
+  line-height: 1;
   strong {
     display: inline-block;
     color: var(--greenFull7);

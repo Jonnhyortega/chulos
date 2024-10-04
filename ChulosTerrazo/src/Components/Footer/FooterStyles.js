@@ -63,7 +63,7 @@ export const SocialIcon = styled.a`
   }
 `;
 
-export const CopyRight = styled.p`
+export const CopyRight = styled.div`
   font-size: 0.9em;
   margin-top: 20px;
   color: #a9a9a9;

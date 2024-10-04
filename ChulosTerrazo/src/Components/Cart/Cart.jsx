@@ -1,50 +1,107 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { removeFromCart, clearCart } from "../../Redux/cartSlice/cartSlice";
+import { toggleHiddenCart, clearCart } from "../../Redux/cartSlice/cartSlice";
 import {
   CartContainer,
-  CartItem,
-  CartButton,
+  Title,
+  CartItemsContainer,
   CartTotal,
-} from "./CartStyles"; 
+  CheckoutButton,
+  CloseButton,
+  CheckoutBox,
+  EmptyButton,
+  LogoTitle,
+} from "./CartStyles";
+import { CardOfCart } from "./CardOfCart/CardOfCart";
+import { CiTrash } from "react-icons/ci";
+import { useNavigate } from "react-router-dom";
+import { ConfirmationModal } from "../ConfirmationModal/CofirmationModal";
 
-export const Cart = () => {
-  const cartItems = useSelector((state) => state.cart.cartItems); // Obtener items del carrito
+const Cart = () => {
+  const navigate = useNavigate();
+  const { cartItems, hidden, shippingCost } = useSelector(
+    (state) => state.cart
+  );
   const dispatch = useDispatch();
+  const cartRef = useRef(null);
+  const [isModal, setIsModal] = useState(false);
 
-  const handleRemoveFromCart = (item) => {
-    dispatch(removeFromCart(item)); 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (cartRef.current && !cartRef.current.contains(event.target)) {
+        if (!hidden) {
+          dispatch(toggleHiddenCart());
+        }
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [dispatch, hidden]);
+
+  const handleCartClick = (event) => {
+    event.stopPropagation();
   };
+
+  const handleCloseCart = () => {
+    dispatch(toggleHiddenCart());
+  };
+
+  // const reDirectCheckout = () => {
+  //   navigate("/checkout");
+  //   dispatch(toggleHiddenCart());
+  // };
+
+  const cartTotal = Math.ceil(
+    cartItems.reduce((total, item) => total + item.quantity * item.price, 0) +
+      shippingCost
+  );
 
   const handleClearCart = () => {
-    dispatch(clearCart()); 
+    dispatch(clearCart());
+    setIsModal(false);
   };
 
-  const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  const handleCancel = () => {
+    dispatch(toggleHiddenCart());
+    setIsModal(false);
+  };
 
   return (
-    <CartContainer>
-      <h2>Carrito</h2>
-      {cartItems.length === 0 ? (
-        <p>No hay productos en el carrito</p>
-      ) : (
-        <>
-          {cartItems.map((item) => (
-            <CartItem key={item.id}>
-              <img src={item.img} alt={item.name} />
-              <div>
-                <h3>{item.name}</h3>
-                <p>Cantidad: {item.quantity}</p>
-                <p>Precio: ${item.price.toLocaleString()}</p>
-                <CartButton onClick={() => handleRemoveFromCart(item)}>Eliminar</CartButton>
-              </div>
-            </CartItem>
-          ))}
-          <CartTotal>Total: ${totalPrice.toLocaleString()}</CartTotal>
-          <CartButton onClick={handleClearCart}>Vaciar Carrito</CartButton>
-        </>
+    <>
+      <CartContainer hidden={hidden} ref={cartRef} onClick={handleCartClick}>
+        <CloseButton onClick={handleCloseCart}>&times;</CloseButton>
+        <CartItemsContainer>
+          <Title>Carrito de compras </Title>
+          {/* <LogoTitle>Chulo's</LogoTitle> */}
+
+          {cartItems.length ? (
+            cartItems.map((item) => (
+              <CardOfCart key={item.id} cartItem={item} />
+            ))
+          ) : (
+            <span>Tu carrito está vacío</span>
+          )}
+        </CartItemsContainer>
+        {cartItems.length > 0 && (
+          <CheckoutBox>
+            <CartTotal>Total: ${cartTotal}</CartTotal>
+            <CheckoutButton>Comprar</CheckoutButton>
+            <EmptyButton onClick={() => setIsModal(true)}>
+              <CiTrash />
+            </EmptyButton>
+          </CheckoutBox>
+        )}
+      </CartContainer>
+
+      {isModal && (
+        <ConfirmationModal
+          answer={"¿Desea vaciar el carrito?"}
+          work1={handleClearCart}
+          work2={handleCancel}
+        />
       )}
-    </CartContainer>
+    </>
   );
 };
 
