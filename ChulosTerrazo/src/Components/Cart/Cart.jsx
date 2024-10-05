@@ -1,21 +1,29 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { toggleHiddenCart, clearCart } from "../../Redux/cartSlice/cartSlice";
 import {
   CartContainer,
   Title,
   CartItemsContainer,
+  CartSubTotal,
   CartTotal,
   CheckoutButton,
   CloseButton,
   CheckoutBox,
-  EmptyButton,
-  LogoTitle,
+  LinkToStore,
+  Logo,
 } from "./CartStyles";
+import {
+  ShippingBox,
+  ShippBox1,
+  ControlsInfoShipping,
+  ControlsA,
+} from "./ShippingBox/ShippingBoxStyles";
 import { CardOfCart } from "./CardOfCart/CardOfCart";
-import { CiTrash } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
 import { ConfirmationModal } from "../ConfirmationModal/CofirmationModal";
+import LogoNavbar from "../Navbar/LogoNavbar/LogoNavbar";
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -25,6 +33,7 @@ const Cart = () => {
   const dispatch = useDispatch();
   const cartRef = useRef(null);
   const [isModal, setIsModal] = useState(false);
+  const [shippingModalOpen, setShippingModalOpen] = useState(false);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -45,12 +54,12 @@ const Cart = () => {
 
   const handleCloseCart = () => {
     dispatch(toggleHiddenCart());
+    console.log("hola pa toy cerrando el carro");
   };
 
-  // const reDirectCheckout = () => {
-  //   navigate("/checkout");
-  //   dispatch(toggleHiddenCart());
-  // };
+  const handleShipping = () => {
+    setShippingModalOpen((prevState) => !prevState);
+  };
 
   const cartTotal = Math.ceil(
     cartItems.reduce((total, item) => total + item.quantity * item.price, 0) +
@@ -68,31 +77,76 @@ const Cart = () => {
   };
 
   return (
-    <>
-      <CartContainer hidden={hidden} ref={cartRef} onClick={handleCartClick}>
-        <CloseButton onClick={handleCloseCart}>&times;</CloseButton>
-        <CartItemsContainer>
-          <Title>Carrito de compras </Title>
-          {/* <LogoTitle>Chulo's</LogoTitle> */}
+    <CartContainer
+      hidden={hidden}
+      ref={cartRef}
+      onClick={handleCartClick}
+      style={{ display: hidden ? "none" : "flex" }}
+    >
+      <CartItemsContainer>
+        <Title>
+          Carrito de compras
+          <CloseButton onClick={handleCloseCart}>&times;</CloseButton>
+        </Title>
 
-          {cartItems.length ? (
-            cartItems.map((item) => (
-              <CardOfCart key={item.id} cartItem={item} />
-            ))
-          ) : (
+        {cartItems.length ? (
+          cartItems.map((item) => <CardOfCart key={item.id} cartItem={item} />)
+        ) : (
+          <>
             <span>Tu carrito está vacío</span>
-          )}
-        </CartItemsContainer>
-        {cartItems.length > 0 && (
-          <CheckoutBox>
-            <CartTotal>Total: ${cartTotal}</CartTotal>
-            <CheckoutButton>Comprar</CheckoutButton>
-            <EmptyButton onClick={() => setIsModal(true)}>
-              <CiTrash />
-            </EmptyButton>
-          </CheckoutBox>
+            <Logo>Chulo´s</Logo>
+            <LinkToStore to="/tienda" onClick={handleCloseCart}>
+              Ver más productos
+            </LinkToStore>
+          </>
         )}
-      </CartContainer>
+      </CartItemsContainer>
+      {cartItems.length > 0 && (
+        <CheckoutBox>
+          <CartSubTotal>
+            <p>Sub total sin envío: </p>
+            <p>${cartTotal}</p>
+          </CartSubTotal>
+
+          <ShippingBox>
+            <ShippBox1 onClick={handleShipping}>
+              <p>Medios de envío</p>
+              <p>{shippingModalOpen ? "-" : "+"}</p>
+            </ShippBox1>
+
+            {shippingModalOpen && (
+              <ControlsInfoShipping>
+                <ControlsA>
+                  <input type="number" placeholder="Código postal" />
+                  <button>OK</button>
+                </ControlsA>
+                <a href="#">No sé mi código postal</a>
+              </ControlsInfoShipping>
+            )}
+          </ShippingBox>
+
+          <CartTotal>
+            <p>Total: </p>
+            <div>
+              <p>${cartTotal}</p>
+              <small>
+                O{" "}
+                <strong>
+                  ${Math.ceil(cartTotal - (cartTotal * 15) / 100)}
+                </strong>{" "}
+                por transferencia bancaria
+              </small>
+              <a href="https://wa.me/5491158227373">Contactar por whatsapp</a>
+            </div>
+          </CartTotal>
+
+          <CheckoutButton>Iniciar compra</CheckoutButton>
+          <LinkToStore to="/tienda" onClick={handleCloseCart}>
+            Ver más productos
+          </LinkToStore>
+          <Logo>Chulo´s</Logo>
+        </CheckoutBox>
+      )}
 
       {isModal && (
         <ConfirmationModal
@@ -101,7 +155,7 @@ const Cart = () => {
           work2={handleCancel}
         />
       )}
-    </>
+    </CartContainer>
   );
 };
 

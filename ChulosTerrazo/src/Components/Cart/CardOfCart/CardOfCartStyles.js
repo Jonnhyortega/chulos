@@ -2,25 +2,30 @@ import styled from "styled-components";
 
 export const Card = styled.div`
   display: flex;
-  padding: 15px;
-  // background-color: var(--silverFull7);
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   background: transparent;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 `;
 
 export const Thumbnail = styled.img`
-  width: 70px;
-  height: 90px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   border-radius: 5px;
-  margin-right: 15px;
+  margin: 0 15px;
 `;
 
 export const Info = styled.div`
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
   font-weight: 0;
   color: var(--greenFull1);
-  font-size: .8em;
+  font-size: 0.8em;
 
   @media (max-width: 768px) {
     font-size: 1em;
@@ -28,8 +33,13 @@ export const Info = styled.div`
   }
 `;
 
+export const Name = styled.p`
+  color: black;
+  margin: 0;
+  font-size: 0.8em;
+`;
+
 export const Price = styled.div`
-  margin: 0 10px;
   font-weight: 500;
   color: #333;
 
@@ -42,20 +52,25 @@ export const Controls = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0;
+  gap: 6px;
+  margin: 0 1em 0 0;
 `;
 
 export const QuantityControls = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid var(--greenFull1);
-  padding: 5px;
   border-radius: 50px;
-  span {
-    font-weight: bold;
-    font-size: 1.1em;
-
-    @media (max-width: 768px) {
-      font-size: 1em;
-    }
+  height: 30px;
+  padding-top: 6px;
+`;
+export const Quantity = styled.p`
+  font-weight: bold;
+  font-size: 1.1em;
+  color: var(--silverFull4);
+  @media (max-width: 768px) {
+    font-size: 1em;
   }
 `;
 

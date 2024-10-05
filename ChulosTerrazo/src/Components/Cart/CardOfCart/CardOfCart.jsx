@@ -9,8 +9,10 @@ import {
   Card,
   Thumbnail,
   Info,
+  Name,
   Price,
   Controls,
+  Quantity,
   QuantityControls,
   Button,
 } from "./CardOfCartStyles";
@@ -43,26 +45,26 @@ export const CardOfCart = ({ cartItem }) => {
     setIsModalOpen(false);
   };
 
+  const handleColorQuantity = () =>{
+    
+  }
   return (
     <>
       <Card>
         <Thumbnail src={cartItem.img} alt={cartItem.title} />
         <Info>
-          {/* {cartItem.name.length > maxLengthTitle
-            ? cartItem.name.substring(0, maxLengthTitle) + "..."
-            : cartItem.name} */}
-            {cartItem.name}
-        <Price>${cartItem.price}</Price>
+          <Name>{cartItem.name}</Name>
+          <Price>${cartItem.price}</Price>
         </Info>
         <Controls>
           <QuantityControls>
-          <Button onClick={handleDecrease}>
-            <CiCircleMinus />
-          </Button>
-          <span>{cartItem.quantity}</span>
-          <Button onClick={handleIncrease}>
-            <CiCirclePlus />
-          </Button>
+            <Button onClick={handleDecrease}>
+              <CiCircleMinus />
+            </Button>
+            <Quantity>{cartItem.quantity}</Quantity>
+            <Button onClick={handleIncrease}>
+              <CiCirclePlus />
+            </Button>
           </QuantityControls>
           <Button onClick={() => setIsModalOpen(true)}>
             <CiTrash />

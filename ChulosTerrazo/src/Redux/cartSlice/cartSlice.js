@@ -4,7 +4,7 @@ import { addItemToCart, removeItemFromCart, resetShippingCost } from "./carUtils
 const SHIPPING_COST = 6.55;
 const INITIAL_STATE = {
   cartItems: [],
-  shippingCost: 0,
+  shippingCost: 8000,
   hidden: true,
 };
 
