@@ -6,9 +6,11 @@ import {
   SecondSubSection,
   Card,
   StyledIcon,
+  CTAsection,
 } from "./BenefitsStyles";
 import { TitleSection } from "./BenefitsStyles";
-
+import { NavLink } from "react-router-dom";
+import imgCTA from "../../imgs/logoWsp1.png";
 const Benefits = () => {
   return (
     <BenefitsWrapper>
@@ -35,6 +37,12 @@ const Benefits = () => {
           <p>Garantía</p>
         </Card>
       </SecondSubSection>
+      <CTAsection>
+        <NavLink to="/contact">Consultar</NavLink>{" "}
+        <NavLink>
+          <img src={imgCTA} alt="" width={"40px"} />
+        </NavLink>
+      </CTAsection>
     </BenefitsWrapper>
   );
 };

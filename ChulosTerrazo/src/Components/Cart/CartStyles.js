@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+
+
 export const CartContainer = styled.div`
   position: fixed;
   right: 0;
@@ -11,8 +13,7 @@ export const CartContainer = styled.div`
   z-index: 1000;
   box-shadow: 1px 1px 5px black;
   animation: slideIn 0.3s ease-out;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+  border-bottom-left-radius: 15px;
   padding: 10px 2px;
   display: flex;
   flex-direction: column;

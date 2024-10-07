@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const ShippingBox = styled.div`
   width: 100%;
-  padding: 5px;
   transition: all 0.3s ease;
   cursor: pointer;
   background: transparent;
@@ -39,16 +38,8 @@ export const ShippBox1 = styled.div`
 `;
 
 export const ControlsInfoShipping = styled.div`
-  margin-top: 15px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  transform: translateY(-20px);
   background: transparent;
   transition: transform 0.4s ease-out, opacity 0.4s ease-out;
-  &.open {
-    transform: translateY(0);
-    opacity: 1;
-  }
 
   a {
     color: black;
@@ -65,7 +56,6 @@ export const ControlsA = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   input {
     width: 70%;
     padding: 10px;
@@ -73,7 +63,6 @@ export const ControlsA = styled.div`
     border-radius: 15px;
     border: 1px solid var(--silverFull7);
     color: black;
-    font-weight: bold;
     background: transparent;
     transition: border-color 0.3s ease;
 

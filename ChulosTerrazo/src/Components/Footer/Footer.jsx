@@ -1,5 +1,6 @@
 // src/components/Footer/Footer.jsx
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   FooterWrapper,
   FooterContent,
@@ -21,6 +22,7 @@ import {
   FaWhatsapp,
 } from "react-icons/fa";
 export function Footer() {
+  const navigateTo = useNavigate()
   return (
     <FooterWrapper>
       <FooterContent>
@@ -35,7 +37,9 @@ export function Footer() {
           <FooterTitle>Contáctanos</FooterTitle>
           <FooterLink href="https://wa.me/5491158227373">Soporte</FooterLink>
           <FooterLink href="#">Preguntas Frecuentes</FooterLink>
-          <FooterLink href="#">Envía tu Consulta</FooterLink>
+          <FooterLink onClick={() => {
+            navigateTo("/contact")
+          }}>Envía tu Consulta</FooterLink>
         </FooterColumn>
 
         {/* Social Links */}

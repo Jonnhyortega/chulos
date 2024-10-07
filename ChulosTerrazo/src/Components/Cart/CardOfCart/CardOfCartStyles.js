@@ -66,9 +66,10 @@ export const QuantityControls = styled.div`
   padding-top: 6px;
 `;
 export const Quantity = styled.p`
-  font-weight: bold;
   font-size: 1.1em;
-  color: var(--silverFull4);
+  color: #333333;
+  font-family: Roboto;
+
   @media (max-width: 768px) {
     font-size: 1em;
   }

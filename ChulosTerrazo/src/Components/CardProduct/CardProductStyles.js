@@ -2,10 +2,8 @@ import styled from "styled-components";
 
 export const CardContainer = styled.div`
   width: 300px;
-  // height: 350px;
   margin: 20px;
   border-radius: 15px;
-  // box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
   background-color: #ffffff;
   @media (max-width: 768px) {
@@ -18,6 +16,10 @@ export const CardContainer = styled.div`
 
   @media (max-width: 568px) {
     margin: 0;
+  }
+
+  @media(max-width: 490px){
+  
   }
   &:hover {
     transform: translateY(-1px);

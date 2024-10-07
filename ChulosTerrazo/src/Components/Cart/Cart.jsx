@@ -94,7 +94,6 @@ const Cart = () => {
         ) : (
           <>
             <span>Tu carrito está vacío</span>
-            <Logo>Chulo´s</Logo>
             <LinkToStore to="/tienda" onClick={handleCloseCart}>
               Ver más productos
             </LinkToStore>

@@ -19,12 +19,7 @@ export const BenefitsWrapper = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  // background: linear-gradient(
-  //   to top,
-  //   var(--greenFull1),
-  //   var(--silverFull7),
-  //   var(--greenFull7)
-  // );
+  
   @media (max-width: 768px) {
     padding: 1em;
   }
@@ -74,7 +69,7 @@ export const Card = styled.div`
   -webkit-backdrop-filter: blur(3px) saturate(200%);
   background-color: rgba(17, 25, 40, 0.58);
   &:hover {
-    transform: translateY(-5px); /* Efecto al hacer hover */
+    transform: translateY(-1px); 
   }
 
   & p {
@@ -83,8 +78,7 @@ export const Card = styled.div`
     text-align: center;
   }
 
-  @media (max-width: 1096px) {
-  }
+
 `;
 
 export const StyledIcon = styled.div`
@@ -95,5 +89,33 @@ export const StyledIcon = styled.div`
 
   ${Card}:hover & {
     color: var(--greenFull5);
+  }
+`;
+
+export const CTAsection = styled.div`
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  a {
+    font-size: 1.4em;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    transition: 0.7s;
+    font-weight: bold;
+    color: var(--greenFull1);
+  }
+  a:hover {
+    letter-spacing: 2px;
+  }
+
+  :last-child > img {
+    width: 60px;
+    transition: .4s;
+  }
+
+  :last-child > img:hover {
+  transform: scale(1.2);
   }
 `;

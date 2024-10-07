@@ -45,16 +45,14 @@ export const CardOfCart = ({ cartItem }) => {
     setIsModalOpen(false);
   };
 
-  const handleColorQuantity = () =>{
-    
-  }
+  const handleColorQuantity = () => {};
   return (
     <>
       <Card>
         <Thumbnail src={cartItem.img} alt={cartItem.title} />
         <Info>
           <Name>{cartItem.name}</Name>
-          <Price>${cartItem.price}</Price>
+          <Price>${cartItem.quantity * cartItem.price}</Price>
         </Info>
         <Controls>
           <QuantityControls>

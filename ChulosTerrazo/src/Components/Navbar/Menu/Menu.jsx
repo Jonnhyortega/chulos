@@ -33,26 +33,26 @@ export function Menu({
         style={{ top: scrollingInfo ? "48px" : "0" }}
         className={isMenuOpen ? "open" : "closed"}
       >
+        
         {/* Search Container */}
-        <SearchContainer>
+        {/* <SearchContainer>
           <SearchInput type="text" placeholder="Buscar" />
           <SearchButton onClick={() => alert("Buscando...")}>
             <SlMagnifier />
           </SearchButton>
-        </SearchContainer>
+        </SearchContainer> */}
 
         {/* Menu Items */}
         <MenuItem as={NavLink} to="/" onClick={closeMenu}>
           Inicio
         </MenuItem>
-        {/* <MenuItem as="div" onClick={toggleDropdown}>
-          Productos <SlArrowDown />
-        </MenuItem> */}
+        <MenuItem as={NavLink} to="/contact" onClick={closeMenu}>
+          Contacto
+        </MenuItem>
         <MenuItem as={NavLink} to="/tienda" onClick={closeMenu}>
           Ir a tienda
         </MenuItem>
 
-        {/* Dropdown Menu */}
         <Dropdown className={isDropdownOpen ? "open" : ""}>
           <DropdownMenu>
             {/* <MenuItem
@@ -74,12 +74,14 @@ export function Menu({
           </DropdownMenu>
         </Dropdown>
 
-        {/* Additional Menu Items */}
-        <MenuItem as={NavLink} to="/disenos" onClick={closeMenu}>
-          Nuestros Diseños
-        </MenuItem>
+        {/* <MenuItem as="div" onClick={toggleDropdown}>
+          Productos <SlArrowDown />
+        </MenuItem> */}
         <MenuItem as={NavLink} to="/about-us" onClick={closeMenu}>
           Sobre Nosotros
+        </MenuItem>
+        <MenuItem as={NavLink} to="/disenos" onClick={closeMenu}>
+          Nuestros Diseños
         </MenuItem>
       </MenuContainer>
     </>
