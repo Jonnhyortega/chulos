@@ -39,7 +39,7 @@ export const FooterLink = styled.a`
   text-decoration: none;
   transition: 0.3s ease-in-out;
   font-size: 0.95em;
-
+  cursor: pointer;
   &:hover {
     color: var(--greenFull7);
     text-decoration: underline;

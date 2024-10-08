@@ -10,7 +10,9 @@ import {
 } from "./BenefitsStyles";
 import { TitleSection } from "./BenefitsStyles";
 import { NavLink } from "react-router-dom";
-import imgCTA from "../../imgs/logoWsp1.png";
+import { IoLogoWhatsapp } from "react-icons/io";
+import { MdEmail } from "react-icons/md";
+
 const Benefits = () => {
   return (
     <BenefitsWrapper>
@@ -38,9 +40,15 @@ const Benefits = () => {
         </Card>
       </SecondSubSection>
       <CTAsection>
-        <NavLink to="/contact">Consultar</NavLink>{" "}
+        <NavLink to="/contact">
+          <MdEmail />
+          {"  "}
+          Consultar por correo electrónico
+        </NavLink>{" "}
         <NavLink>
-          <img src={imgCTA} alt="" width={"40px"} />
+          <IoLogoWhatsapp />
+          {"  "}
+          Consultar por whatsapp
         </NavLink>
       </CTAsection>
     </BenefitsWrapper>

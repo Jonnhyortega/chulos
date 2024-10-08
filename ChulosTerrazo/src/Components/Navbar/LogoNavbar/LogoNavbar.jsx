@@ -88,7 +88,7 @@ export function LogoNavbar({ scrollingInfo }) {
         style={{ top: scrollingInfo ? "25%" : "0" }}
         $isVisible={showMainText}
         onClick={() => {
-          hookTo("/home");
+          hookTo("/");
         }}
       >
         Chulo's
@@ -96,6 +96,7 @@ export function LogoNavbar({ scrollingInfo }) {
       <Tagline
         style={{
           transform: scrollingInfo ? "translateY(-48%)" : "translateY(0)",
+          color: scrollingInfo ? "black" : "var(--silverFull5)"
         }}
         $isVisible={!showMainText}
       >

@@ -50,22 +50,29 @@ export const Navbar = () => {
         transition: "transform 0.3s ease",
         alignItems: scrollingDown ? "end" : "center",
         background: scrollingDown ? "transparent" : "var(--greenFull1)",
-        borderBottom: scrollingDown ? "1px solid var(--silverFull7)" : "none",
       }}
     >
       <HamburgerMenu
-        style={{ marginBottom: scrollingDown ? "15px" : "0" }}
+        style={{ marginBottom: scrollingDown ? "15px" : "0",
+          color: scrollingDown ? "black" : "var(--silverFull4)"
+         }}
         onClick={toggleMenu}
       >
         &#9776;
       </HamburgerMenu>
       <LogoNavbar scrollingInfo={scrollingDown} />
-      <ToggleCart onClick={toggleCart}>
+      
+      <ToggleCart  
+      style={{color: scrollingDown ? "black": "var(--silverFull5)"}}
+      onClick={toggleCart}>
         <FaShoppingBag />
-        <CartCount style={{ top: scrollingDown ? "60px" : "18px" }}>
+        <CartCount style={{ top: scrollingDown ? "50px" : "16px",
+          color: scrollingDown ? "black" : "var(--silverFull5)"
+         }}>
           {cartItemsCount}
         </CartCount>
       </ToggleCart>
+
       {isMenuOpen && (
         <Menu
           isMenuOpen={isMenuOpen}

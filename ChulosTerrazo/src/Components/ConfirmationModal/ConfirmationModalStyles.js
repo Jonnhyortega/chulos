@@ -37,7 +37,7 @@ export const ModalTitle = styled.h2`
   export const ModalMessage = styled.p`
   margin: 0;
   margin-bottom: 20px;
-  color: var(--greenFull4);
+  color: black;
   font-size: 1.3rem;
 `;
 
@@ -57,12 +57,12 @@ export const ConfirmButton = styled.button`
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: #45a049;
+    background-color: var(--greenFull4);
   }
 `;
 
 export const CancelButton = styled.button`
-  background-color: #f44336;
+  background-color: red;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -71,6 +71,6 @@ export const CancelButton = styled.button`
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: #e53935;
+    background-color:rgb(254, 52, 60);
   }
 `;

@@ -31,7 +31,7 @@ const ContactUs = () => {
       <FormGroup>
         <Label>Nombre</Label>
         <div>
-          <input type="text" name="from_name" />
+          <input type="text" name="from_name" placeholder="Ingrese su nombre" />
           <span className="bottom"></span>
           <span className="right"></span>
           <span className="top"></span>
@@ -42,7 +42,7 @@ const ContactUs = () => {
       <FormGroup>
         <Label>Email</Label>
         <div>
-          <input type="email" name="email_id" />
+          <input type="email" name="email_id" placeholder="Ingrese su correo" />
           <span className="bottom"></span>
           <span className="right"></span>
           <span className="top"></span>
@@ -50,10 +50,12 @@ const ContactUs = () => {
         </div>
       </FormGroup>
 
-      <Label>Mensaje</Label>
-      <textarea placeholder="Escriba su mensaje" name="mensaje" />
+      <FormGroup>
+        <Label htmlFor="mensaje">Mensaje</Label>
+        <textarea placeholder="Escriba su mensaje" name="mensaje" />
+      </FormGroup>
 
-      <input type="submit" value="Send" />
+      <input type="submit" value="Enviar" placeholder="Enviar" />
     </form>
   );
 };

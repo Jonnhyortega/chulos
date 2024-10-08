@@ -24,6 +24,7 @@ import { CardOfCart } from "./CardOfCart/CardOfCart";
 import { useNavigate } from "react-router-dom";
 import { ConfirmationModal } from "../ConfirmationModal/CofirmationModal";
 import LogoNavbar from "../Navbar/LogoNavbar/LogoNavbar";
+import { formattedPrice } from "../../Redux/cartSlice/carUtils";
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -52,6 +53,10 @@ const Cart = () => {
     event.stopPropagation();
   };
 
+  const handleNavigate = (url) => {
+    navigate(url);
+  };
+
   const handleCloseCart = () => {
     dispatch(toggleHiddenCart());
     console.log("hola pa toy cerrando el carro");
@@ -62,8 +67,7 @@ const Cart = () => {
   };
 
   const cartTotal = Math.ceil(
-    cartItems.reduce((total, item) => total + item.quantity * item.price, 0) +
-      shippingCost
+    cartItems.reduce((total, item) => total + item.quantity * item.price, 0)
   );
 
   const handleClearCart = () => {
@@ -104,10 +108,10 @@ const Cart = () => {
         <CheckoutBox>
           <CartSubTotal>
             <p>Sub total sin envío: </p>
-            <p>${cartTotal}</p>
+            <p>{formattedPrice(cartTotal)}</p>
           </CartSubTotal>
 
-          <ShippingBox>
+          {/* <ShippingBox>
             <ShippBox1 onClick={handleShipping}>
               <p>Medios de envío</p>
               <p>{shippingModalOpen ? "-" : "+"}</p>
@@ -119,15 +123,20 @@ const Cart = () => {
                   <input type="number" placeholder="Código postal" />
                   <button>OK</button>
                 </ControlsA>
-                <a href="#">No sé mi código postal</a>
+                <a
+                  target="blank"
+                  href="https://www.correoargentino.com.ar/formularios/cpa"
+                >
+                  No sé mi código postal
+                </a>
               </ControlsInfoShipping>
             )}
-          </ShippingBox>
+          </ShippingBox> */}
 
           <CartTotal>
             <p>Total: </p>
             <div>
-              <p>${cartTotal}</p>
+              <p>{formattedPrice(cartTotal)}</p>
               <small>
                 O{" "}
                 <strong>

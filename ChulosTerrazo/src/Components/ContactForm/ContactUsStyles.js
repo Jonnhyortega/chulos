@@ -27,6 +27,7 @@ export const FormGroup = styled.div`
 
     input::placeholder {
       color: black;
+      font-weight: 300;
     }
 
     span {

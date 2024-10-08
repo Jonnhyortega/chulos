@@ -96,7 +96,7 @@ export const CTAsection = styled.div`
   margin-top: 30px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
 
   a {
     font-size: 1.4em;

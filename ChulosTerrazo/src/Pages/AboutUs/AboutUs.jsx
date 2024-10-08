@@ -21,19 +21,24 @@ const AboutUs = () => {
             pasión.
           </h3>
           <p>
-            En <strong>Chulos</strong>, creemos que la moda es una extensión de
-            tu personalidad y estilo de vida. Desde el primer día, nos
-            esforzamos por crear diseños que no solo se vea increíble, sino que
-            también te haga sentir seguro y auténtico. Cada producto está
-            diseñado con atención al detalle y confeccionada con materiales de
-            alta calidad para ofrecerte lo mejor.
+            <strong>Chulos Diseños</strong> nace a partir de la pasión por
+            materializar y darle vida a proyectos que viven en nuestra
+            imaginación. Somos una empresa familiar dedicada al diseño de
+            interiores, trabajamos con una amplia diversidad de materiales, como
+            son maderas enchapadas, maderas macizas , hierros estructurales ,
+            entre otros.{" "}
+            <HighlightText>Realizamos diseños personalizados</HighlightText>{" "}
+            acompañando a nuestros clientes a concretar sus proyectos. Nuestro
+            compromiso es acompañarte desde el inicio de la obra , entendiendo
+            la funcionalidad, practicidad y estética deseada. Contamos con una
+            línea de productos para el hogar ya estandarizada.
           </p>
-          <p>
+          {/* <p>
             Nuestro equipo está formado por creativos apasionados y
             profesionales del diseño que buscan innovar constantemente. Con cada
             nuevo producto, queremos inspirarte a
-            <HighlightText>explorar tu estilo exterior</HighlightText>.
-          </p>
+            <HighlightText> explorar tu estilo exterior</HighlightText>.
+          </p> */}
         </TextContent>
         <ImageWrapper>
           <Image src={img1} alt="Equipo creativo trabajando" />

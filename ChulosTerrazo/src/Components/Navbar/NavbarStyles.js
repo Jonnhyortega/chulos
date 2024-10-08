@@ -25,11 +25,11 @@ export const HamburgerMenu = styled.button`
   padding: 0 1em;
   margin-left: 1em;
   cursor: pointer;
-  color: var(--grennFull1);
   transition-duration: 0.6s;
+  font-weight: 900;
   &:hover {
-    transform: scale(1.4);
-    color: var(--greenFull1)
+    color: var(--silverFull7);
+    transform: scale(1.3);
   }
 `;
 
@@ -40,17 +40,15 @@ export const ToggleCart = styled.button`
   font-size: 1.5em;
   margin-right: 1em;
   cursor: pointer;
-  color: var(--greenFull7);
   transition-duration: 0.6s;
 
   &:hover {
-    color: var(--greenFull5);
+    color: var(--silverFull7);
   }
 `;
 
 export const CartCount = styled.span`
   position: absolute;
-  right: 15px;
-  font-size: 12px;
-  font-weight: bold;
+  font-size: 15px;
+  font-weight: 900;
 `;

@@ -30,7 +30,7 @@ export function Footer() {
           <FooterTitle>Servicios</FooterTitle>
           <FooterLink >Diseño de Interiores</FooterLink>
           <FooterLink >Renovación de Espacios</FooterLink>
-          <FooterLink >Consultoría de Estilo</FooterLink>
+          <FooterLink >Divisores a medida</FooterLink>
         </FooterColumn>
 
         <FooterColumn>

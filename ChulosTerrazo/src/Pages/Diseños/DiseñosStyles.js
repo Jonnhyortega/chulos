@@ -63,23 +63,17 @@ export const DiseñosWrapper = styled.div`
   h2 {
     font-size: 40px;
     margin-bottom: 20px;
-    background: linear-gradient(
-      to bottom,
-      black,
-      var(--greenFull1)
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--greenFull1);
     animation: ${titleFrame} 1s ease-in-out;
     font-weight: bold;
   }
 
   p {
-    color: var(--silverFull2);
+    color: var(--silverFull1);
     font-weight: 600;
     font-size: 1.2em;
     padding: 0 3em;
-    text-align:justify;
+    text-align: justify;
     animation: ${titleFrame} 1s ease-in-out;
   }
 

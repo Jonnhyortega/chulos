@@ -1,9 +1,7 @@
 import React from "react";
 import { Routes as ReactDomRoutes, Route, NavLink } from "react-router-dom";
 import Products from "../Products/Products";
-import Sillas from "../Sillas/Sillas";
-import Espejos from "../Espejos/Espejos";
-import MesasBajas from "../MesasBajas/MesasBajas";
+
 import {
   StoreWrapper,
   ButtonContainer,

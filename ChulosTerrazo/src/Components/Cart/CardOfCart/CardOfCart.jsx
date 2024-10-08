@@ -18,6 +18,8 @@ import {
 } from "./CardOfCartStyles";
 import { CiCirclePlus, CiCircleMinus, CiTrash } from "react-icons/ci";
 import ModalConfirmation from "../../ConfirmationModal/CofirmationModal";
+import { formattedPrice } from "../../../Redux/cartSlice/carUtils";
+
 export const CardOfCart = ({ cartItem }) => {
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -52,7 +54,7 @@ export const CardOfCart = ({ cartItem }) => {
         <Thumbnail src={cartItem.img} alt={cartItem.title} />
         <Info>
           <Name>{cartItem.name}</Name>
-          <Price>${cartItem.quantity * cartItem.price}</Price>
+          <Price>{formattedPrice(cartItem.quantity * cartItem.price)}</Price>
         </Info>
         <Controls>
           <QuantityControls>

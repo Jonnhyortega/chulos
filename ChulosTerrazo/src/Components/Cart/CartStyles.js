@@ -41,6 +41,7 @@ export const CartContainer = styled.div`
 
   span {
     text-align: center;
+    color: black;
   }
   @keyframes slideIn {
     from {

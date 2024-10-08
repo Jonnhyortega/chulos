@@ -1,7 +1,12 @@
 form {
-  margin: 120px auto;
+  margin: 100px auto;
   background-color: transparent;
   padding: 15px;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px; */
 }
 
 form > p {
@@ -18,20 +23,20 @@ textarea {
   border-radius: 5px;
   background: transparent;
   color: black;
-  font-size: 1.3em;
+  font-size: 1em;
+  font-family: "Poppins", sans-serif;
+  padding: 0.4em;
 }
 
 textarea::placeholder {
   color: black;
+  font-weight: 300;
   font-size: 1em;
 }
 
-textarea:focus {
-  border: 1px solid red;
-}
-
 input[type="submit"] {
-  width: 100%;
+  width: 100px;
+  margin: 0 auto;
   padding: 10px;
   background-color: var(--greenFull1);
   color: white;

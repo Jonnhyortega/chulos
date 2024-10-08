@@ -27,16 +27,16 @@ export const AboutUsWrapper = styled.section`
 export const SectionTitle = styled.h2`
   font-size: 42px;
   color: #333;
-  margin-bottom: 40px;
+  margin-bottom: 40px var(--greenFull1);
   position: relative;
   text-align: center;
 
   &::after {
     content: "";
     display: block;
-    width: 60px;
+    width: 160px;
     height: 3px;
-    background-color: #0077b6;
+    background-color: var(--greenFull4);
     margin: 10px auto 0;
   }
 `;
@@ -79,7 +79,7 @@ export const TextContent = styled.div`
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 30px;
   }
 
   @media (max-width: 768px) {
@@ -115,6 +115,6 @@ export const Image = styled.img`
 `;
 
 export const HighlightText = styled.span`
-  color: #0077b6;
-  font-weight: bold;
+  color: var(--greenFull4);
+  font-weight: 500;
 `;

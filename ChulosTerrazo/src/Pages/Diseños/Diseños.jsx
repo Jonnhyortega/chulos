@@ -80,9 +80,6 @@ export default function Diseños() {
     window.open("https://wa.me/5491158227373", "_blank");
   };
 
-  const contentCTA = () =>{
-
-  }
 
   return (
     <DiseñosWrapper>
