@@ -1,17 +1,4 @@
 import styled from "styled-components";
-import { Field } from "formik";
-
-export const Container = styled.div`
-  margin: 120px auto;
-  background-color: transparent;
-  padding: 15px;
-  p {
-    color: var(--greenFull1);
-    font-weight: bold;
-    font-size: 2em;
-    text-align: center;
-  }
-`;
 
 export const FormGroup = styled.div`
   margin-bottom: 15px;
@@ -24,7 +11,7 @@ export const FormGroup = styled.div`
 
     input {
       width: 100%;
-      color: white;
+      color: black;
       font-size: inherit;
       font-family: inherit;
       background-color: transparent;
@@ -54,6 +41,7 @@ export const FormGroup = styled.div`
       left: 0;
       right: 0;
       transform: scaleX(0);
+      v
     }
 
     .left,
@@ -111,48 +99,4 @@ export const Label = styled.label`
   font-weight: bold;
   margin-bottom: 5px;
   color: var(--greenFull1);
-`;
-
-export const StyledField = styled(Field)`
-  width: 100%;
-`;
-
-export const StyledTextArea = styled(StyledField).attrs({ as: "textarea" })`
-  height: 100px;
-  resize: none;
-  border-radius: 5px;
-  background: transparent;
-
-  &::placeholder {
-    color: black;
-    font-family: "Poppins", sans-serif;
-    font-size: 1.2em;
-  }
-`;
-
-export const ErrorText = styled.div`
-  color: red;
-  font-size: 0.8em;
-  margin-top: 5px;
-`;
-
-export const SubmitButton = styled.button`
-  width: 100%;
-  padding: 10px;
-  background-color: var(--greenFull1);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: var(--greenFull3);
-  }
-
-  &:disabled {
-    background-color: #ddd;
-    cursor: not-allowed;
-  }
 `;

@@ -4,7 +4,7 @@ import { Home } from "../Pages/Home/Home";
 import StoreProducts from "../Pages/StoreProducts/StoreProducts";
 import Diseños from "../Pages/Diseños/Diseños";
 import AboutUs from "../Pages/AboutUs/AboutUs";
-import ContactForm from "../Components/ContactForm/ContactForm";
+import ContactUs from "../Components/ContactForm/ContactUs";
 
 export function Routes() {
   return (
@@ -13,7 +13,7 @@ export function Routes() {
       <Route path="/tienda/*" element={<StoreProducts />} />
       <Route path="/disenos" element={<Diseños />} />
       <Route path="/about-us" element={<AboutUs />} />
-      <Route path="/contact" element={<ContactForm />} />
+      <Route path="/contact" element={<ContactUs />} />
 
       {/* <Route path="/mis-ordenes" element={<MisOrdenes />} /> */}
       {/* <Route path="/checkout" element={<ProtectedRoute redirectTo="/register"><Checkout /></ProtectedRoute>} /> */}
