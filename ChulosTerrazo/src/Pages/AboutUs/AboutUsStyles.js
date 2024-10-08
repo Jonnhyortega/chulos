@@ -18,7 +18,7 @@ export const AboutUsWrapper = styled.section`
   padding: 80px 20px;
   min-height: 100vh;
   animation: ${fadeIn} 0.6s ease-in-out;
-
+  margin-top: 20px;
   @media (max-width: 768px) {
     padding: 50px 15px;
   }
@@ -26,7 +26,7 @@ export const AboutUsWrapper = styled.section`
 
 export const SectionTitle = styled.h2`
   font-size: 42px;
-  color: #333;
+  color: var(--greenFull1);
   margin-bottom: 40px var(--greenFull1);
   position: relative;
   text-align: center;
@@ -36,7 +36,7 @@ export const SectionTitle = styled.h2`
     display: block;
     width: 160px;
     height: 3px;
-    background-color: var(--greenFull4);
+    background-color: var(--greenFull6);
     margin: 10px auto 0;
   }
 `;

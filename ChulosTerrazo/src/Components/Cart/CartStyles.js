@@ -6,7 +6,7 @@ export const CartContainer = styled.div`
   position: fixed;
   right: 0;
   top: 0;
-  height: 90vh;
+  height: 100vh;
   width: 400px;
   background: var(--silverFull5);
   overflow-y: scroll;

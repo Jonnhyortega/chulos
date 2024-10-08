@@ -62,10 +62,10 @@ export const DiseñosWrapper = styled.div`
 
   h2 {
     font-size: 40px;
-    margin-bottom: 20px;
     color: var(--greenFull1);
     animation: ${titleFrame} 1s ease-in-out;
     font-weight: bold;
+    text-align: center;
   }
 
   p {

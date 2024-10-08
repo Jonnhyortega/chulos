@@ -2,6 +2,7 @@ form {
   margin: 100px auto;
   background-color: transparent;
   padding: 15px;
+  max-width: 500px;
   /* display: flex;
   flex-direction: column;
   align-items: center;
