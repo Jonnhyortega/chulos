@@ -14,11 +14,11 @@ export const HeroContainer = styled.section`
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: center;
   text-align: center;
   width: 100%;
   overflow: hidden;
-  background-image: url(${bckgImg});
+  background-image: url(${(props) => props.bckgImg || bckgImg});
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -37,7 +37,7 @@ export const HeroContainer = styled.section`
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.2);
     z-index: 1;
   }
 `;
@@ -60,9 +60,6 @@ export const Content = styled.div`
       font-size: 1.2rem;
     }
   }
-
-  @media (max-width: 768px) {
-  }
 `;
 
 export const HeroTitle = styled.h1`
@@ -81,17 +78,19 @@ export const HeroSubtitle = styled.h2`
   font-size: 2rem;
   letter-spacing: 2px;
   padding: 0 4em;
-  color: var(--silverFull6);
+  color: var(--silverFull4);
   font-family: "Roboto", sans-serif;
-  text-align: left;
-  font-weight: 300;
+  text-shadow: -2px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  text-align: center;
+  font-weight: 500;
   line-height: 1;
   strong {
     display: inline-block;
     color: var(--greenFull7);
     font-weight: 400px;
     font-size: 1.8rem;
-    font-weight: 200;
+    font-weight: 400;
     font-family: "Poppins", sans-serif;
   }
 `;

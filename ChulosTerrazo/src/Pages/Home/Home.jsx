@@ -8,8 +8,8 @@ export function Home() {
   return (
     <HomeWrapper>
       <Hero />
-      <Benefits />
       <AboutUs />
+      <Benefits />
       <Contact/>
     </HomeWrapper>
   );

@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 import { toggleHiddenCart, clearCart } from "../../Redux/cartSlice/cartSlice";
 import {
   CartContainer,
@@ -23,8 +22,10 @@ import {
 import { CardOfCart } from "./CardOfCart/CardOfCart";
 import { useNavigate } from "react-router-dom";
 import { ConfirmationModal } from "../ConfirmationModal/CofirmationModal";
-import LogoNavbar from "../Navbar/LogoNavbar/LogoNavbar";
 import { formattedPrice } from "../../Redux/cartSlice/carUtils";
+import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
+import axios from "axios";
+// IMPORTS
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -59,7 +60,6 @@ const Cart = () => {
 
   const handleCloseCart = () => {
     dispatch(toggleHiddenCart());
-    console.log("hola pa toy cerrando el carro");
   };
 
   const handleShipping = () => {
@@ -79,6 +79,39 @@ const Cart = () => {
     dispatch(toggleHiddenCart());
     setIsModal(false);
   };
+
+  // INTEGRACION DE MERCADO PAGO
+  // INTEGRACION DE MERCADO PAGO
+  // INTEGRACION DE MERCADO PAGO
+  // initMercadoPago("U93611NaKX", { locale: "es-AR" });
+  // const [preferencId, setPreferencId] = useState(null);
+  // const createPreference = async () => {
+  //   try {
+  //     const response = await axios.post(
+  //       "http://localhost:3000/create_preference",
+  //       {
+  //         title: "Pago total por compra",
+  //         quantity: 1,
+  //         price: Math.ceil(cartTotal),
+  //       }
+  //     );
+  //     const { id } = response.data;
+  //     return id;
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  // const handleBuy = async () => {
+  //   console.log("hola");
+  //   const id = await createPreference();
+  //   if (id) {
+  //     setPreferencId(id);
+  //   }
+  // };
+  // INTEGRACION DE MERCADO PAGO
+  // INTEGRACION DE MERCADO PAGO
+  // INTEGRACION DE MERCADO PAGO
 
   return (
     <CartContainer
@@ -148,7 +181,14 @@ const Cart = () => {
             </div>
           </CartTotal>
 
-          <CheckoutButton>Iniciar compra</CheckoutButton>
+          <CheckoutButton onClick={handleBuy}>Iniciar compra</CheckoutButton>
+          {/* {preferencId && (
+            <Wallet
+              initialization={{ preferenceId: preferencId }}
+              customization={{ texts: { valueProp: "smart_option" } }}
+            />
+          )} */}
+
           <LinkToStore to="/tienda" onClick={handleCloseCart}>
             Ver más productos
           </LinkToStore>

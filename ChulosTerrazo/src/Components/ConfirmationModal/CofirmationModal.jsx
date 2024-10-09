@@ -2,7 +2,6 @@ import React from "react";
 import {
   ModalBackground,
   ModalContainer,
-  ModalTitle,
   ModalMessage,
   ButtonContainer,
   ConfirmButton,
@@ -12,7 +11,6 @@ export const ConfirmationModal = ({ answer, work1, work2 }) => {
   return (
     <ModalBackground>
       <ModalContainer>
-        <ModalTitle>Confirmación</ModalTitle>
         <ModalMessage>{answer}</ModalMessage>
         <ButtonContainer>
           <ConfirmButton onClick={work1}>Aceptar</ConfirmButton>

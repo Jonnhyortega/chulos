@@ -53,7 +53,7 @@ export const SocialIconsContainer = styled.div`
 `;
 
 export const SocialIcon = styled.a`
-  color: var(--greenFull7);
+  color: var(--greenFull1);
   font-size: 1.8em;
   transition: 1s ease-in-out;
 

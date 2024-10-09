@@ -23,6 +23,7 @@ export default function CardProduct({ product }) {
 
   const handleAddToCart = () => {
     dispatch(addToCart(product));
+    console.log("el click lo toma")
   };
 
   return (
@@ -37,7 +38,6 @@ export default function CardProduct({ product }) {
         </ProductDescription>
         <ProductPrice>${product.price.toLocaleString()}</ProductPrice>
         <ProductButton onClick={handleAddToCart}>Agregar</ProductButton>{" "}
-        {/* Botón que llama a la función de agregar */}
       </ProductInfo>
     </CardContainer>
   );

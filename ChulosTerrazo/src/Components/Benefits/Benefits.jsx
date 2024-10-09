@@ -16,7 +16,7 @@ import { MdEmail } from "react-icons/md";
 const Benefits = () => {
   return (
     <BenefitsWrapper>
-      <TitleSection>Te ofrecemos</TitleSection>
+      {/* <TitleSection>Te ofrecemos</TitleSection> */}
       <SecondSubSection>
         <Card>
           <StyledIcon>
@@ -39,7 +39,7 @@ const Benefits = () => {
           <p>Garantía</p>
         </Card>
       </SecondSubSection>
-      <CTAsection>
+      {/* <CTAsection>
         <NavLink to="/contact">
           <MdEmail />
           {"  "}
@@ -50,7 +50,7 @@ const Benefits = () => {
           {"  "}
           Consultar por whatsapp
         </NavLink>
-      </CTAsection>
+      </CTAsection> */}
     </BenefitsWrapper>
   );
 };
