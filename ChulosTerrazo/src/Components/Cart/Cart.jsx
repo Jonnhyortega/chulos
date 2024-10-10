@@ -88,11 +88,14 @@ const Cart = () => {
   initMercadoPago(PUBLIC_KEY);
 
   const createPreference = async () => {
+    const listProducts = `Productos de que vas a comprar: ${cartItems
+      .map((item) => item.quantity + item.name)
+      .join(", ")}`;
     try {
       const response = await axios.post(
         "http://localhost:3000/create_preference",
         {
-          title: "Pago total por compra",
+          title: listProducts,
           price: cartTotal,
           quantity: 1,
         }
@@ -113,14 +116,6 @@ const Cart = () => {
     }
   };
 
-  const customization = {
-    checkout: {
-      theme: {
-        elementsColor: 'f54242',
-        headerColor: '4287F5'
-      }
-    }
-  };
   // INTEGRACION DE MERCADO PAGO
   // INTEGRACION DE MERCADO PAGO
   // INTEGRACION DE MERCADO PAGO
@@ -206,10 +201,7 @@ const Cart = () => {
             {preferencId ? "Gracias por elegirnos 😊" : "Iniciar compra"}
           </CheckoutButton>
           {preferencId && (
-            <Wallet
-              initialization={{ preferenceId: preferencId }}
-              customization={customization}
-            />
+            <Wallet initialization={{ preferenceId: preferencId }} />
           )}
 
           <LinkToStore to="/tienda" onClick={handleCloseCart}>
