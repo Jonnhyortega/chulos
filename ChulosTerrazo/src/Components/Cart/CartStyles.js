@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-
 export const CartContainer = styled.div`
   position: fixed;
   right: 0;
@@ -134,25 +133,23 @@ export const CartTotal = styled.div`
 `;
 
 export const CheckoutButton = styled.button`
-  margin-top: 15px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  background-color: var(--greenFull3);
-  color: white;
-  width: 100%;
+  width: auto;
+  padding: 5px;
   font-size: 1.5em;
   font-weight: bold;
+  text-align: center;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  padding: 1.3em;
   &:hover {
     background-color: var(--greenFull4);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+    // box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   }
 
   &:active {
-    transform: translateY(1px);
+    transform: translateY(0.1em);
   }
 `;
 

@@ -83,32 +83,44 @@ const Cart = () => {
   // INTEGRACION DE MERCADO PAGO
   // INTEGRACION DE MERCADO PAGO
   // INTEGRACION DE MERCADO PAGO
-  // initMercadoPago("U93611NaKX", { locale: "es-AR" });
-  // const [preferencId, setPreferencId] = useState(null);
-  // const createPreference = async () => {
-  //   try {
-  //     const response = await axios.post(
-  //       "http://localhost:3000/create_preference",
-  //       {
-  //         title: "Pago total por compra",
-  //         quantity: 1,
-  //         price: Math.ceil(cartTotal),
-  //       }
-  //     );
-  //     const { id } = response.data;
-  //     return id;
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  const [preferencId, setPreferencId] = useState(null);
+  const PUBLIC_KEY = "APP_USR-d7b16db4-a5c6-4a80-8123-1590a9a119a1";
+  initMercadoPago(PUBLIC_KEY);
 
-  // const handleBuy = async () => {
-  //   console.log("hola");
-  //   const id = await createPreference();
-  //   if (id) {
-  //     setPreferencId(id);
-  //   }
-  // };
+  const createPreference = async () => {
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/create_preference",
+        {
+          title: "Pago total por compra",
+          price: cartTotal,
+          quantity: 1,
+        }
+      );
+      const { id } = response.data;
+      return id;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleBuy = async () => {
+    console.log("Has hecho click en iniciar compra");
+    const id = await createPreference();
+    if (id) {
+      setPreferencId(id);
+      console.log(preferencId);
+    }
+  };
+
+  const customization = {
+    checkout: {
+      theme: {
+        elementsColor: 'f54242',
+        headerColor: '4287F5'
+      }
+    }
+  };
   // INTEGRACION DE MERCADO PAGO
   // INTEGRACION DE MERCADO PAGO
   // INTEGRACION DE MERCADO PAGO
@@ -181,13 +193,24 @@ const Cart = () => {
             </div>
           </CartTotal>
 
-          <CheckoutButton onClick={handleBuy}>Iniciar compra</CheckoutButton>
-          {/* {preferencId && (
+          <CheckoutButton
+            disabled={preferencId ? true : false}
+            style={{
+              backgroundColor: preferencId
+                ? "transparent"
+                : "var(--greenFull3)",
+              color: preferencId ? "#333333" : "white",
+            }}
+            onClick={handleBuy}
+          >
+            {preferencId ? "Gracias por elegirnos 😊" : "Iniciar compra"}
+          </CheckoutButton>
+          {preferencId && (
             <Wallet
               initialization={{ preferenceId: preferencId }}
-              customization={{ texts: { valueProp: "smart_option" } }}
+              customization={customization}
             />
-          )} */}
+          )}
 
           <LinkToStore to="/tienda" onClick={handleCloseCart}>
             Ver más productos

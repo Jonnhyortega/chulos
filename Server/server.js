@@ -1,11 +1,13 @@
 import express from "express";
 import cors from "cors";
+const ACCESS_TOKEN =
+  "APP_USR-2775179814509131-101010-fe98bbb7952fc2b4037b69369674dbe8-2026224945";
 
 // SDK de mercado pago
 import { MercadoPagoConfig, Preference } from "mercadopago";
 
 const client = new MercadoPagoConfig({
-  accessToken: "GH2AngZpHL",
+  accessToken: ACCESS_TOKEN,
 });
 
 const app = express();
@@ -15,7 +17,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("Soy el server :)");
+  res.send("Soy el server de chulitosdesign :D");
 });
 
 app.post("/create_preference", async (req, res) => {
@@ -30,9 +32,9 @@ app.post("/create_preference", async (req, res) => {
         },
       ],
       back_urls: {
-        succes: "https://chulitos.vercel.app",
-        failure: "https://chulitos.vercel.app",
-        pending: "https://chulitos.vercel.app",
+        success: "https://www.youtube.com/",
+        failure: "https://www.youtube.com/",
+        pending: "https://www.youtube.com/",
       },
       auto_return: "approved",
     };
@@ -40,9 +42,9 @@ app.post("/create_preference", async (req, res) => {
     const result = await preference.create({ body });
     res.json({ id: result.id });
   } catch (error) {
-    console.log(error);
+    console.error("Error al crear preferencia:", error);
     res.status(500).json({
-      error: "error al crear la preferencia :(",
+      error: "Error al crear la preferencia :(",
     });
   }
 });
