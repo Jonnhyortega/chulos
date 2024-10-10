@@ -93,7 +93,7 @@ const Cart = () => {
       .join(", ")}`;
     try {
       const response = await axios.post(
-        "http://localhost:3000/create_preference",
+        "https://chulitos.vercel.app/create_preference",
         {
           title: listProducts,
           price: cartTotal,
