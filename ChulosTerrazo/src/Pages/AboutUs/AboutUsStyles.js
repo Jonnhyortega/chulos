@@ -80,7 +80,7 @@ export const ImageSlider = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 100%;
   overflow: hidden;
   margin: 0 auto;
 `;

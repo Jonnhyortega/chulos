@@ -19,7 +19,7 @@ export const BenefitsWrapper = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
+
   @media (max-width: 768px) {
     padding: 1em;
   }
@@ -69,7 +69,7 @@ export const Card = styled.div`
   -webkit-backdrop-filter: blur(3px) saturate(200%);
   background-color: rgba(17, 25, 40, 0.58);
   &:hover {
-    transform: translateY(-1px); 
+    transform: translateY(-1px);
   }
 
   & p {
@@ -77,8 +77,6 @@ export const Card = styled.div`
     font-size: 1rem;
     text-align: center;
   }
-
-
 `;
 
 export const StyledIcon = styled.div`
@@ -101,7 +99,7 @@ export const CTAsection = styled.div`
   a {
     font-size: 1.4em;
     text-decoration: none;
-    font-family: "Roboto", sans-serif;
+    font-family: "child", sans-serif;
     transition: 0.7s;
     font-weight: bold;
     color: var(--greenFull1);
@@ -112,10 +110,10 @@ export const CTAsection = styled.div`
 
   :last-child > img {
     width: 60px;
-    transition: .4s;
+    transition: 0.4s;
   }
 
   :last-child > img:hover {
-  transform: scale(1.2);
+    transform: scale(1.2);
   }
 `;

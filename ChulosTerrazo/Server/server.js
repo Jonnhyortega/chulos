@@ -2,8 +2,8 @@ import express from "express";
 import cors from "cors";
 import { MercadoPagoConfig, Preference } from "mercadopago";
 
-const ACCESS_TOKEN =
-  "APP_USR-2775179814509131-101010-fe98bbb7952fc2b4037b69369674dbe8-2026224945";
+dotenv.config();
+const ACCESS_TOKEN = process.env.MERCADO_PAGO_ACCESS_TOKEN;
 
 const client = new MercadoPagoConfig({
   accessToken: ACCESS_TOKEN,
@@ -31,9 +31,9 @@ app.post("/create_preference", async (req, res) => {
         },
       ],
       back_urls: {
-        success: "https://www.youtube.com/",
-        failure: "https://www.youtube.com/",
-        pending: "https://www.youtube.com/",
+        success: "https://chulitos.vercel.app/",
+        failure: "https://chulitos.vercel.app/",
+        pending: "https://chulitos.vercel.app/",
       },
       auto_return: "approved",
     };

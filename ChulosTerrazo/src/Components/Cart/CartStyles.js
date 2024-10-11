@@ -136,10 +136,11 @@ export const CheckoutButton = styled.button`
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  width: auto;
-  padding: 5px;
+  width: 100%;
+  padding: 15px;
   font-size: 1.5em;
   font-weight: bold;
+  font-family: "Poppins", sans-serif;
   text-align: center;
   transition: background-color 0.3s ease, transform 0.2s ease;
   &:hover {
@@ -150,6 +151,15 @@ export const CheckoutButton = styled.button`
 
   &:active {
     transform: translateY(0.1em);
+  }
+
+  p {
+    font-size: 2rem;
+    font-family: "Dancing Script", cursive;
+    background: black;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: opacity 0.8s ease-in-out;
   }
 `;
 

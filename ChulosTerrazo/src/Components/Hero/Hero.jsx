@@ -5,11 +5,10 @@ import { ButtonFirst } from "../Buttons/ButtonFirst/ButtonFirst";
 import img1 from "../../imgs/HeroImgs/hero1.jpeg";
 import img2 from "../../imgs/HeroImgs/hero2.jpeg";
 import img3 from "../../imgs/HeroImgs/hero3.jpeg";
-import img4 from "../../imgs/HeroImgs/hero4.jpeg";
-import img5 from "../../imgs/HeroImgs/hero5.jpeg";
-import img6 from "../../imgs/HeroImgs/hero6.jpeg";
-import img7 from "../../imgs/HeroImgs/hero7.jpeg";
-const images = [img1, img2, img3, img4, img5, img6, img7];
+import img4 from "../../imgs/HeroImgs/hero5.jpeg";
+import img5 from "../../imgs/HeroImgs/hero6.jpeg";
+import img6 from "../../imgs/HeroImgs/hero7.jpeg";
+const images = [img1, img2, img3, img4, img5, img6];
 
 export const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);

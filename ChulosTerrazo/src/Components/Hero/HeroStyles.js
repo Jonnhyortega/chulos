@@ -27,9 +27,6 @@ export const HeroContainer = styled.section`
   margin: 0;
   height: 90vh;
 
-  @media (max-width: 968px) {
-    height: auto;
-  }
   &::before {
     content: "";
     position: absolute;
@@ -40,6 +37,8 @@ export const HeroContainer = styled.section`
     background-color: rgba(0, 0, 0, 0.2);
     z-index: 1;
   }
+
+
 `;
 
 export const Content = styled.div`
@@ -48,7 +47,7 @@ export const Content = styled.div`
     ease-in-out;
   transition: opacity 0.5s ease;
   z-index: 2;
-  margin: 0;
+  margin: 0 auto;
 
   button {
     margin: 0 0 3em 0;
@@ -78,20 +77,20 @@ export const HeroSubtitle = styled.h2`
   font-size: 2rem;
   letter-spacing: 2px;
   padding: 0 4em;
-  color: var(--silverFull4);
+  color: var(--silverFull7);
   font-family: "Roboto", sans-serif;
-  text-shadow: -2px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
-  text-align: center;
-  font-weight: 500;
-  line-height: 1;
-  strong {
-    display: inline-block;
-    color: var(--greenFull7);
-    font-weight: 400px;
-    font-size: 1.8rem;
-    font-weight: 400;
-    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    line-height: 1;
+    strong {
+      display: inline-block;
+      color: var(--silverFull3);
+      font-weight: 500px;
+      font-size: 2rem;
+      font-weight: 300;
+      font-family: "Poppins", sans-serif;
+      text-align: center;
   }
 `;
 

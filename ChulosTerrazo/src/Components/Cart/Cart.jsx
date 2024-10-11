@@ -25,6 +25,7 @@ import { ConfirmationModal } from "../ConfirmationModal/CofirmationModal";
 import { formattedPrice } from "../../Redux/cartSlice/carUtils";
 import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
 import axios from "axios";
+import { LogoTitle } from "../Footer/FooterStyles";
 // IMPORTS
 
 const Cart = () => {
@@ -85,7 +86,9 @@ const Cart = () => {
   // INTEGRACION DE MERCADO PAGO
   const [preferencId, setPreferencId] = useState(null);
   const PUBLIC_KEY = "APP_USR-d7b16db4-a5c6-4a80-8123-1590a9a119a1";
-  initMercadoPago(PUBLIC_KEY);
+  initMercadoPago(PUBLIC_KEY, {
+    locale: 'es-AR', 
+  });
 
   const createPreference = async () => {
     const listProducts = `Productos de que vas a comprar: ${cartItems
@@ -93,11 +96,12 @@ const Cart = () => {
       .join(", ")}`;
     try {
       const response = await axios.post(
-        "https://chulitos.vercel.app/create_preference",
+        "http://localhost:3000/create_preference",
         {
           title: listProducts,
           price: cartTotal,
           quantity: 1,
+          currency_id: "ARS"
         }
       );
       const { id } = response.data;
@@ -115,6 +119,15 @@ const Cart = () => {
       console.log(preferencId);
     }
   };
+
+  const customization = {
+    checkout: {
+      theme: {
+        buttonBackground: 'black',
+
+      },
+    },
+   };
 
   // INTEGRACION DE MERCADO PAGO
   // INTEGRACION DE MERCADO PAGO
@@ -198,16 +211,18 @@ const Cart = () => {
             }}
             onClick={handleBuy}
           >
-            {preferencId ? "Gracias por elegirnos 😊" : "Iniciar compra"}
+            {preferencId ? "Gracias por elegirnos" : "Iniciar compra"}
+            {preferencId && <p>Chulo's design</p>}
           </CheckoutButton>
           {preferencId && (
-            <Wallet initialization={{ preferenceId: preferencId }} />
+            <Wallet initialization={{ preferenceId: preferencId }}
+            customization={customization} />
           )}
 
           <LinkToStore to="/tienda" onClick={handleCloseCart}>
             Ver más productos
           </LinkToStore>
-          <Logo>Chulo´s</Logo>
+          {!preferencId ? (<Logo>Chulo´s</Logo>) : null }
         </CheckoutBox>
       )}
 
