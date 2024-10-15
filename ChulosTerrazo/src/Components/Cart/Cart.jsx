@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleHiddenCart, clearCart } from "../../Redux/cartSlice/cartSlice";
 import {
+  Modal,
   CartContainer,
   Title,
   CartItemsContainer,
@@ -85,15 +86,14 @@ const Cart = () => {
   // INTEGRACION DE MERCADO PAGO
   // INTEGRACION DE MERCADO PAGO
   const [preferencId, setPreferencId] = useState(null);
-  const PUBLIC_KEY = "APP_USR-d7b16db4-a5c6-4a80-8123-1590a9a119a1";
+  const PUBLIC_KEY = "APP_USR-ae6bd0d6-7571-477d-ab8a-77b002960a02";
   initMercadoPago(PUBLIC_KEY, {
-    locale: 'es-AR', 
+    locale: "es-AR",
   });
 
   const createPreference = async () => {
-    const listProducts = `Productos de que vas a comprar: ${cartItems
-      .map((item) => item.quantity + item.name)
-      .join(", ")}`;
+    const listProducts = `Productos de que vas a comprar: 
+    ${cartItems.map((item) => item.quantity + " " + item.name).join(", ")}`;
     try {
       const response = await axios.post(
         "http://localhost:3000/create_preference",
@@ -101,7 +101,7 @@ const Cart = () => {
           title: listProducts,
           price: cartTotal,
           quantity: 1,
-          currency_id: "ARS"
+          currency_id: "ARS",
         }
       );
       const { id } = response.data;
@@ -116,55 +116,47 @@ const Cart = () => {
     const id = await createPreference();
     if (id) {
       setPreferencId(id);
-      console.log(preferencId);
     }
   };
-
-  const customization = {
-    checkout: {
-      theme: {
-        buttonBackground: 'black',
-
-      },
-    },
-   };
-
   // INTEGRACION DE MERCADO PAGO
   // INTEGRACION DE MERCADO PAGO
   // INTEGRACION DE MERCADO PAGO
 
   return (
-    <CartContainer
-      hidden={hidden}
-      ref={cartRef}
-      onClick={handleCartClick}
-      style={{ display: hidden ? "none" : "flex" }}
-    >
-      <CartItemsContainer>
-        <Title>
-          Carrito de compras
-          <CloseButton onClick={handleCloseCart}>&times;</CloseButton>
-        </Title>
+    <Modal style={{display:hidden ? "none" : "block" }}>
+      <CartContainer
+        hidden={hidden}
+        ref={cartRef}
+        onClick={handleCartClick}
+        style={{ display: hidden ? "none" : "flex" }}
+      >
+        <CartItemsContainer>
+          <Title>
+            Carrito de compras
+            <CloseButton onClick={handleCloseCart}>&times;</CloseButton>
+          </Title>
 
-        {cartItems.length ? (
-          cartItems.map((item) => <CardOfCart key={item.id} cartItem={item} />)
-        ) : (
-          <>
-            <span>Tu carrito está vacío</span>
-            <LinkToStore to="/tienda" onClick={handleCloseCart}>
-              Ver más productos
-            </LinkToStore>
-          </>
-        )}
-      </CartItemsContainer>
-      {cartItems.length > 0 && (
-        <CheckoutBox>
-          <CartSubTotal>
-            <p>Sub total sin envío: </p>
-            <p>{formattedPrice(cartTotal)}</p>
-          </CartSubTotal>
+          {cartItems.length ? (
+            cartItems.map((item) => (
+              <CardOfCart key={item.id} cartItem={item} />
+            ))
+          ) : (
+            <>
+              <span>Tu carrito está vacío</span>
+              <LinkToStore to="/tienda" onClick={handleCloseCart}>
+                Ver más productos
+              </LinkToStore>
+            </>
+          )}
+        </CartItemsContainer>
+        {cartItems.length > 0 && (
+          <CheckoutBox>
+            <CartSubTotal>
+              <p>Sub total sin envío: </p>
+              <p>{formattedPrice(cartTotal)}</p>
+            </CartSubTotal>
 
-          {/* <ShippingBox>
+            {/* <ShippingBox>
             <ShippBox1 onClick={handleShipping}>
               <p>Medios de envío</p>
               <p>{shippingModalOpen ? "-" : "+"}</p>
@@ -186,54 +178,54 @@ const Cart = () => {
             )}
           </ShippingBox> */}
 
-          <CartTotal>
-            <p>Total: </p>
-            <div>
-              <p>{formattedPrice(cartTotal)}</p>
-              <small>
-                O{" "}
-                <strong>
-                  ${Math.ceil(cartTotal - (cartTotal * 15) / 100)}
-                </strong>{" "}
-                por transferencia bancaria
-              </small>
-              <a href="https://wa.me/5491158227373">Contactar por whatsapp</a>
-            </div>
-          </CartTotal>
+            <CartTotal>
+              <p>Total: </p>
+              <div>
+                <p>{formattedPrice(cartTotal)}</p>
+                <small>
+                  O{" "}
+                  <strong>
+                    ${Math.ceil(cartTotal - (cartTotal * 15) / 100)}
+                  </strong>{" "}
+                  por transferencia bancaria
+                </small>
+                <a href="https://wa.me/5491158227373">Contactar por whatsapp</a>
+              </div>
+            </CartTotal>
 
-          <CheckoutButton
-            disabled={preferencId ? true : false}
-            style={{
-              backgroundColor: preferencId
-                ? "transparent"
-                : "var(--greenFull3)",
-              color: preferencId ? "#333333" : "white",
-            }}
-            onClick={handleBuy}
-          >
-            {preferencId ? "Gracias por elegirnos" : "Iniciar compra"}
-            {preferencId && <p>Chulo's design</p>}
-          </CheckoutButton>
-          {preferencId && (
-            <Wallet initialization={{ preferenceId: preferencId }}
-            customization={customization} />
-          )}
+            <CheckoutButton
+              disabled={preferencId ? true : false}
+              style={{
+                backgroundColor: preferencId
+                  ? "transparent"
+                  : "var(--greenFull3)",
+                color: preferencId ? "#333333" : "white",
+              }}
+              onClick={handleBuy}
+            >
+              {preferencId ? "Gracias por elegirnos" : "Iniciar compra"}
+              {preferencId && <p>Chulo's design</p>}
+            </CheckoutButton>
+            {preferencId && (
+              <Wallet initialization={{ preferenceId: preferencId }} />
+            )}
 
-          <LinkToStore to="/tienda" onClick={handleCloseCart}>
-            Ver más productos
-          </LinkToStore>
-          {!preferencId ? (<Logo>Chulo´s</Logo>) : null }
-        </CheckoutBox>
-      )}
+            <LinkToStore to="/tienda" onClick={handleCloseCart}>
+              Ver más productos
+            </LinkToStore>
+            {!preferencId ? <Logo>Chulo´s</Logo> : null}
+          </CheckoutBox>
+        )}
 
-      {isModal && (
-        <ConfirmationModal
-          answer={"¿Desea vaciar el carrito?"}
-          work1={handleClearCart}
-          work2={handleCancel}
-        />
-      )}
-    </CartContainer>
+        {isModal && (
+          <ConfirmationModal
+            answer={"¿Desea vaciar el carrito?"}
+            work1={handleClearCart}
+            work2={handleCancel}
+          />
+        )}
+      </CartContainer>
+    </Modal>
   );
 };
 

@@ -4,6 +4,7 @@ export const AboutUsWrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 7px;
   padding: 80px 20px;
   min-height: 100vh;
   margin-top: 20px;
@@ -36,7 +37,7 @@ export const ContentWrapper = styled.div`
   max-width: 1200px;
   width: 100%;
   gap: 40px;
-
+  margin-bottom: 40px;
   @media (max-width: 768px) {
     flex-direction: column;
     gap: 30px;

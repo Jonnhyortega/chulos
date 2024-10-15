@@ -6,30 +6,34 @@ import respaldo from "../imgs/ProductsImg/respaldo-cama.jpeg";
 export const products = [
   {
     id: 1,
-    name: "Botiquin de baño",
-    description: "Botiquin de baño a medida, en varios colores",
+    name: "Botiquin",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae totam, similique vitae cupiditate minus debitis veritatis amet at quos iusto.Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae totam, similique vitae cupiditate minus debitis veritatis amet at quos iusto.Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae totam, similique vitae cupiditate minus debitis veritatis amet at quos iusto.",
     price: 25,
-    img: botiquin1,
+    img: [botiquin1, bajoMesada, divisorBlanco, respaldo],
   },
   {
     id: 2,
     name: "Escritorio",
-    description: "Medidas a convenir",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae totam, similique vitae cupiditate minus debitis veritatis amet at quos iusto.Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae totam, similique vitae cupiditate minus debitis veritatis amet at quos iusto.Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae totam, similique vitae cupiditate minus debitis veritatis amet at quos iusto.",
     price: 10,
-    img: bajoMesada,
+    img: [botiquin1, bajoMesada, divisorBlanco, respaldo],
   },
   {
     id: 3,
     name: "Vanitory",
-    description: "Divisor de ambiente atractiva para tu hogar",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae totam, similique vitae cupiditate minus debitis veritatis amet at quos iusto.Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae totam, similique vitae cupiditate minus debitis veritatis amet at quos iusto.Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae totam, similique vitae cupiditate minus debitis veritatis amet at quos iusto.",
     price: 60,
-    img: divisorBlanco,
+    img: [botiquin1, bajoMesada, divisorBlanco, respaldo],
   },
   {
     id: 4,
-    name: "Espejo de baño",
-    description: "Espejo de baño hecho a medida",
+    name: "Espejo",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae totam, similique vitae cupiditate minus debitis veritatis amet at quos iusto.Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae totam, similique vitae cupiditate minus debitis veritatis amet at quos iusto.Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae totam, similique vitae cupiditate minus debitis veritatis amet at quos iusto.",
     price: 20,
-    img: respaldo,
+    img: [botiquin1, bajoMesada, divisorBlanco, respaldo],
   },
 ];

@@ -1,11 +1,15 @@
 import styled, { keyframes } from "styled-components";
-import bckgImg from "../../imgs/backgroundHeroImg.jpeg";
-const fadeIn = keyframes`
-  from {
+import defaultBckgImg from "../../imgs/backgroundHeroImg.jpeg";
+
+const fadeInOut = keyframes`
+  0% {
     opacity: 0;
   }
-  to {
+  50% {
     opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 `;
 
@@ -18,33 +22,31 @@ export const HeroContainer = styled.section`
   text-align: center;
   width: 100%;
   overflow: hidden;
-  background-image: url(${(props) => props.bckgImg || bckgImg});
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-position: center;
-  box-shadow: 1px 1px 5px black;
-  margin: 0;
   height: 90vh;
+  background-color: black;
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.2);
-    z-index: 1;
+  @media (max-width: 768px) {
+    height: 80vh;
   }
+`;
 
-
+export const BackgroundImage = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(${(props) => props.$bckgImg || defaultBckgImg});
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: 0;
+  animation: ${fadeInOut} 6s ease-in-out infinite;
+  transition: background-image 1s ease-in-out;
 `;
 
 export const Content = styled.div`
   opacity: ${({ $isVisible }) => ($isVisible ? 1 : 0)};
-  animation: ${({ $isVisible }) => ($isVisible ? fadeIn : "none")} 2s
-    ease-in-out;
   transition: opacity 0.5s ease;
   z-index: 2;
   margin: 0 auto;
@@ -62,7 +64,7 @@ export const Content = styled.div`
 `;
 
 export const HeroTitle = styled.h1`
-  font-size: 6rem;
+  font-size: 8rem;
   font-weight: bold;
   padding: 0;
   margin: 0;
@@ -77,30 +79,18 @@ export const HeroSubtitle = styled.h2`
   font-size: 2rem;
   letter-spacing: 2px;
   padding: 0 4em;
-  color: var(--silverFull7);
+  // color: var(--silverFull7);
   font-family: "Roboto", sans-serif;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-    1px 1px 0 #000;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  line-height: 1;
+  
+  strong {
+    display: inline-block;
+    color: white;
     font-weight: 500;
-    line-height: 1;
-    strong {
-      display: inline-block;
-      color: var(--silverFull3);
-      font-weight: 500px;
-      font-size: 2rem;
-      font-weight: 300;
-      font-family: "Poppins", sans-serif;
-      text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
   }
-`;
-
-export const ImageSlider = styled.div`
-  height: 100vh;
-`;
-
-export const Image = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 1s ease;
 `;

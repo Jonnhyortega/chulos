@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const CardContainer = styled.div`
   width: 300px;
@@ -6,6 +7,8 @@ export const CardContainer = styled.div`
   border-radius: 15px;
   transition: transform 0.3s, box-shadow 0.3s;
   background-color: #ffffff;
+  position: relative;
+
   @media (max-width: 768px) {
     width: 220px;
 
@@ -18,12 +21,26 @@ export const CardContainer = styled.div`
     margin: 0;
   }
 
-  @media(max-width: 490px){
-  
+  @media (max-width: 490px) {
+    width: 190px;
+    border-radius: 0;
+    img {
+      border-radius: 0;
+    }
   }
+
+  @media (max-width: 381px) {
+    width: 60vh;
+    height: auto;
+  }
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+
   &:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    color: var(--greenFull4);
   }
 `;
 
@@ -32,6 +49,7 @@ export const ProductImage = styled.img`
   height: 180px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  cursor: pointer;
 `;
 
 export const ProductInfo = styled.div`
@@ -75,8 +93,31 @@ export const ProductButton = styled.button`
   cursor: pointer;
   background-color: var(--greenFull4);
   transition: 0.3s;
+
   &:hover {
     background-color: var(--greenFull4);
     transform: translateY(-3px);
+  }
+`;
+
+export const SlidersBox = styled.div`
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const SliderButton = styled.button`
+  background-color: transparent;
+  border: none;
+  color: var(--silverFull7);
+  font-size: 2rem;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  &:hover {
+    color: var(--greenFull1);
+    filter: drop-shadow(1px 1px 10px grey);
   }
 `;

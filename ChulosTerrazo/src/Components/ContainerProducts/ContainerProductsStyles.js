@@ -11,5 +11,12 @@ export const ProductsContainer = styled.div`
 
   @media (max-width: 600px) {
     gap: 10px;
+    }
+    @media (max-width: 460px) {
+    gap:1px;
+    padding:20px 0;
+    }
+     @media (max-width: 381px) {
+    gap: 5px; 
   }
 `;

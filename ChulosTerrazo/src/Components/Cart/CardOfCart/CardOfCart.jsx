@@ -51,7 +51,7 @@ export const CardOfCart = ({ cartItem }) => {
   return (
     <>
       <Card>
-        <Thumbnail src={cartItem.img} alt={cartItem.title} />
+        <Thumbnail src={cartItem.img[0]} alt={cartItem.title} />
         <Info>
           <Name>{cartItem.name}</Name>
           <Price>{formattedPrice(cartItem.quantity * cartItem.price)}</Price>

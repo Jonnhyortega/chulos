@@ -1,44 +1,76 @@
-// src/components/CardProduct.jsx
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../Redux/cartSlice/cartSlice";
 import {
   CardContainer,
+  StyledLink,
   ProductImage,
   ProductInfo,
   ProductName,
-  ProductDescription,
   ProductPrice,
   ProductButton,
+  SliderButton,
+  SlidersBox,
 } from "./CardProductStyles";
+import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 
 export default function CardProduct({ product }) {
-  const [stringsToWatch, setStringsToWatch] = useState(10);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const dispatch = useDispatch();
-  const handleStrings = () => {
-    stringsToWatch === 10
-      ? setStringsToWatch(product.description.length)
-      : setStringsToWatch(10);
-  };
 
   const handleAddToCart = () => {
     dispatch(addToCart(product));
-    console.log("el click lo toma")
+  };
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleNextImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === product.img.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const handlePrevImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? product.img.length - 1 : prevIndex - 1
+    );
   };
 
   return (
-    <CardContainer>
-      <ProductImage src={product.img} alt={product.name} />
-      <ProductInfo>
-        <ProductName>{product.name}</ProductName>
-        <ProductDescription onClick={handleStrings}>
-          {stringsToWatch === 10
-            ? product.description.substring(0, 10) + "..."
-            : product.description}
-        </ProductDescription>
-        <ProductPrice>${product.price.toLocaleString()}</ProductPrice>
-        <ProductButton onClick={handleAddToCart}>Agregar</ProductButton>{" "}
-      </ProductInfo>
-    </CardContainer>
+    <>
+      <CardContainer>
+        <StyledLink to={`/tienda/product/${product.id}`}>
+          <ProductImage
+            onClick={handleOpenModal}
+            src={product.img[currentImageIndex]}
+            alt={product.name}
+          />
+        </StyledLink>
+        <SlidersBox>
+          <SliderButton onClick={handlePrevImage}>
+            <IoIosArrowDropleft />
+          </SliderButton>
+          <SliderButton onClick={handleNextImage}>
+            <IoIosArrowDropright />
+          </SliderButton>
+        </SlidersBox>
+        <ProductInfo>
+          <StyledLink to={`/tienda/product/${product.id}`}>
+            <ProductName>{product.name}</ProductName>
+          </StyledLink>
+          <StyledLink to={`/tienda/product/${product.id}`}>
+            Ver producto
+          </StyledLink>
+          <ProductPrice>${product.price.toLocaleString()}</ProductPrice>
+          <ProductButton onClick={handleAddToCart}>Agregar</ProductButton>
+        </ProductInfo>
+      </CardContainer>
+    </>
   );
 }

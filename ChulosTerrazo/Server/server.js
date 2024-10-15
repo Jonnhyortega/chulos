@@ -1,10 +1,11 @@
 import express from "express";
 import cors from "cors";
 import { MercadoPagoConfig, Preference } from "mercadopago";
-
-dotenv.config();
-const ACCESS_TOKEN = process.env.MERCADO_PAGO_ACCESS_TOKEN;
-
+// import dotenv from "dotenv";
+// dotenv.config();
+// const ACCESS_TOKEN = process.env.MERCADO_PAGO_ACCESS_TOKEN;
+const ACCESS_TOKEN =
+  "APP_USR-2775179814509131-101210-ddecccdd055b8ff6d847a2c58c1726e2-2026224945";
 const client = new MercadoPagoConfig({
   accessToken: ACCESS_TOKEN,
 });
@@ -16,7 +17,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("Soy el server de chulitosdesign :D");
+  res.send("<h2>Hola soy el servidor del chulito</h2>");
 });
 
 app.post("/create_preference", async (req, res) => {
@@ -31,9 +32,9 @@ app.post("/create_preference", async (req, res) => {
         },
       ],
       back_urls: {
-        success: "https://chulitos.vercel.app/",
-        failure: "https://chulitos.vercel.app/",
-        pending: "https://chulitos.vercel.app/",
+        success: "https://google.com/",
+        failure: "https://google.com/",
+        pending: "https://google.com/",
       },
       auto_return: "approved",
     };
@@ -42,6 +43,7 @@ app.post("/create_preference", async (req, res) => {
     res.json({ id: result.id });
   } catch (error) {
     console.error("Error al crear preferencia:", error);
+    console.log(ACCESS_TOKEN)
     res.status(500).json({
       error: "Error al crear la preferencia :(",
     });

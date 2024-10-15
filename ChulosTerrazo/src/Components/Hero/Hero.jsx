@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { HeroContainer, HeroTitle, HeroSubtitle, Content } from "./HeroStyles";
+import { HeroContainer, HeroTitle, HeroSubtitle, Content, BackgroundImage } from "./HeroStyles";
 import { useNavigate } from "react-router-dom";
 import { ButtonFirst } from "../Buttons/ButtonFirst/ButtonFirst";
 import img1 from "../../imgs/HeroImgs/hero1.jpeg";
@@ -8,6 +8,7 @@ import img3 from "../../imgs/HeroImgs/hero3.jpeg";
 import img4 from "../../imgs/HeroImgs/hero5.jpeg";
 import img5 from "../../imgs/HeroImgs/hero6.jpeg";
 import img6 from "../../imgs/HeroImgs/hero7.jpeg";
+
 const images = [img1, img2, img3, img4, img5, img6];
 
 export const Hero = () => {
@@ -38,11 +39,12 @@ export const Hero = () => {
   }, []);
 
   return (
-    <HeroContainer bckgImg={images[currentImage]}>
+    <HeroContainer>
+      <BackgroundImage $bckgImg={images[currentImage]} />
       <Content $isVisible={isVisible}>
         <HeroTitle>Chulo's</HeroTitle>
         <HeroSubtitle>
-          <strong>Te acompañamos a materializar tus proyectos </strong>
+          <strong>Te acompañamos a materializar tus proyectos</strong>
         </HeroSubtitle>
         <ButtonFirst content={"Ver diseños"} work={handleRedirect} />
       </Content>

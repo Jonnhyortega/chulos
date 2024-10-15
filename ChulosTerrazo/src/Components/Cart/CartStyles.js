@@ -1,6 +1,19 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-
+export const Modal = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  backdrop-filter: blur(25px) saturate(200%);
+  -webkit-backdrop-filter: blur(25px) saturate(200%);
+  background-color: rgba(17, 25, 40, 0);
+`;
 export const CartContainer = styled.div`
   position: fixed;
   right: 0;

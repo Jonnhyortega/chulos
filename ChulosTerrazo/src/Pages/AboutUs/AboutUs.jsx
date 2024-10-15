@@ -10,12 +10,14 @@ import {
 } from "./AboutUsStyles";
 import img1 from "../../imgs/AboutUsImg/aboutUsImg.jpeg";
 import img2 from "../../imgs/AboutUsImg/aboutUsImg2.jpeg";
+import ButtonFirst from "../../Components/Buttons/ButtonFirst/ButtonFirst";
+import { useNavigate } from "react-router-dom";
 
 const images = [img1, img2];
 
 const AboutUs = () => {
   const [currentImage, setCurrentImage] = useState(0);
-
+  const navigate = useNavigate()
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prevIndex) =>
@@ -25,6 +27,12 @@ const AboutUs = () => {
 
     return () => clearInterval(interval);
   }, []);
+  const redirectToWhatSapp = () => {
+    window.open("https://wa.me/5491158227373", "_blank");
+  };
+  const redirectToStore = () => {
+    navigate("/tienda")
+  }
 
   return (
     <AboutUsWrapper>
@@ -41,14 +49,20 @@ const AboutUs = () => {
             imaginación. Somos una empresa familiar dedicada al diseño de
             interiores, trabajamos con una amplia diversidad de materiales como
             maderas enchapadas, maderas macizas, hierros estructurales, entre
-            otros. <HighlightText>Realizamos diseños personalizados</HighlightText> acompañando a nuestros clientes a concretar sus proyectos.
+            otros.{" "}
+            <HighlightText>Realizamos diseños personalizados</HighlightText>{" "}
+            acompañando a nuestros clientes a concretar sus proyectos.
           </p>
         </TextContent>
         <ImageSlider>
-          <Image src={images[currentImage]} alt={`Imagen ${currentImage + 1}`} />
-          
+          <Image
+            src={images[currentImage]}
+            alt={`Imagen ${currentImage + 1}`}
+          />
         </ImageSlider>
       </ContentWrapper>
+      <ButtonFirst content={"Contactanos"} work={redirectToWhatSapp} />
+      <ButtonFirst content={"Ver tienda"} work={redirectToStore} />
     </AboutUsWrapper>
   );
 };
