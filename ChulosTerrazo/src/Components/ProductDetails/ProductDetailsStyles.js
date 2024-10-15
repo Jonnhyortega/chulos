@@ -27,6 +27,7 @@ export const ProductImageContainer = styled.div`
 
   @media (max-width: 768px) {
     width: 100%;
+    height: auto;
     flex-direction: column;
     align-items: center;
   }
@@ -68,7 +69,6 @@ export const ThumbnailImage = styled.img`
 
   &:hover {
     border: 2px solid var(--greenFull1);
-
     box-shadow: 1px 1px 5px grey;
   }
 
@@ -96,6 +96,7 @@ export const ProductName = styled.p`
   color: var(--greenFull1);
   font-weight: 700;
   margin: 0;
+  text-align: center;
   @media (max-width: 768px) {
     font-size: 1.8rem;
   }

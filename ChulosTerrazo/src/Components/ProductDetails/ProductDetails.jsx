@@ -29,13 +29,13 @@ const ProductDetails = () => {
 
   const handleAddToCart = () => {
     dispatch(addToCart(product));
-    console.log("Producto agregado al carrito");
   };
 
   return (
     <DetailsContainer>
       {product ? (
         <>
+          <ProductName>{product.name}</ProductName>
           <ProductImageContainer>
             <ProductImage src={mainImage} alt={product.name} />
             <ThumbnailContainer>
@@ -48,12 +48,14 @@ const ProductDetails = () => {
                 />
               ))}
             </ThumbnailContainer>
+            <ProductPrice>
+              ${product.price.toLocaleString()}{" "}
+              <s>${product.price + (product.price * 30) / 100}</s>
+            </ProductPrice>
+            <StockInfo>Stock disponible</StockInfo>
           </ProductImageContainer>
 
           <ProductInfo>
-            <ProductName>{product.name}</ProductName>
-            <ProductPrice>${product.price.toLocaleString()} <s>${product.price + ((product.price*30)/100)}</s></ProductPrice>
-            <StockInfo>Stock disponible</StockInfo>
             <ProductDescription>{product.description}</ProductDescription>
 
             <ButtonContainer>
