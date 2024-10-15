@@ -9,10 +9,8 @@ import {
   ProductName,
   ProductPrice,
   ProductButton,
-  SliderButton,
-  SlidersBox,
+
 } from "./CardProductStyles";
-import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
 
 export default function CardProduct({ product }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -52,14 +50,12 @@ export default function CardProduct({ product }) {
             alt={product.name}
           />
         </StyledLink>
-        <SlidersBox>
-          <SliderButton onClick={handlePrevImage}>
+          {/* <SliderButtonLeft onClick={handlePrevImage}>
             <MdArrowBackIos />
-          </SliderButton>
-          <SliderButton onClick={handleNextImage}>
+          </SliderButtonLeft>
+          <SliderButtonRight onClick={handleNextImage}>
             <MdArrowForwardIos />
-          </SliderButton>
-        </SlidersBox>
+          </SliderButtonRight> */}
         <ProductInfo>
           <StyledLink to={`/tienda/product/${product.id}`}>
             <ProductName>{product.name}</ProductName>

@@ -35,6 +35,7 @@ export const CardContainer = styled.div`
     width: 100%;
     height: auto;
     display: flex;
+    justify-content: space-around;
   }
 `;
 
@@ -53,8 +54,8 @@ export const ProductImage = styled.img`
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   cursor: pointer;
-  @media(max-width: 381px){
-  width: 150px;
+  @media (max-width: 381px) {
+    width: 150px;
   }
 `;
 
@@ -103,32 +104,5 @@ export const ProductButton = styled.button`
   &:hover {
     background-color: var(--greenFull4);
     transform: translateY(-3px);
-  }
-`;
-
-export const SlidersBox = styled.div`
-  position: absolute;
-  top: 50px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-
-  @media (max-width: 381px) {
-    width: 35%;
-    top: -7px;
-  }
-`;
-
-export const SliderButton = styled.button`
-  background-color: transparent;
-  border: none;
-  color: var(--silverFull7);
-  font-size: 2rem;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 50%;
-  &:hover {
-    color: var(--greenFull1);
-    filter: drop-shadow(1px 1px 10px grey);
   }
 `;
