@@ -19,19 +19,22 @@ export const CardContainer = styled.div`
 
   @media (max-width: 568px) {
     margin: 0;
+    background: transparent;
   }
 
   @media (max-width: 490px) {
     width: 190px;
     border-radius: 0;
+
     img {
       border-radius: 0;
     }
   }
 
   @media (max-width: 381px) {
-    width: 60vh;
+    width: 100%;
     height: auto;
+    display: flex;
   }
 `;
 
@@ -50,6 +53,9 @@ export const ProductImage = styled.img`
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   cursor: pointer;
+  @media(max-width: 381px){
+  width: 150px;
+  }
 `;
 
 export const ProductInfo = styled.div`
@@ -106,6 +112,11 @@ export const SlidersBox = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 381px) {
+    width: 35%;
+    top: -7px;
+  }
 `;
 
 export const SliderButton = styled.button`

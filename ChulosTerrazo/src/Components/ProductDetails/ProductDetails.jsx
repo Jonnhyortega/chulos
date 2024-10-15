@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart } from "../../Redux/cartSlice/cartSlice";
+import ImageGallery from "react-image-gallery"; // Importa ImageGallery
+import "react-image-gallery/styles/css/image-gallery.css"; // Importa los estilos predeterminados
 import {
+  Discount,
+  DiscountText,
   DetailsContainer,
-  ProductImageContainer,
-  ThumbnailContainer,
-  ThumbnailImage,
-  ProductImage,
+  ProductFound,
+  ContentFirst,
+  BoxGalleryImg,
   ProductInfo,
   ProductName,
   ProductPrice,
@@ -24,8 +27,12 @@ const ProductDetails = () => {
   const product = useSelector((state) =>
     state.products.products.find((p) => p.id === parseInt(id))
   );
-  const [mainImage, setMainImage] = useState(product?.img[0] || "");
   const dispatch = useDispatch();
+
+  const images = product?.img.map((image) => ({
+    original: image,
+    thumbnail: image,
+  }));
 
   const handleAddToCart = () => {
     dispatch(addToCart(product));
@@ -34,38 +41,41 @@ const ProductDetails = () => {
   return (
     <DetailsContainer>
       {product ? (
-        <>
+        <ProductFound>
           <ProductName>{product.name}</ProductName>
-          <ProductImageContainer>
-            <ProductImage src={mainImage} alt={product.name} />
-            <ThumbnailContainer>
-              {product.img.map((image, index) => (
-                <ThumbnailImage
-                  key={index}
-                  src={image}
-                  alt={`Thumbnail ${index}`}
-                  onClick={() => setMainImage(image)}
-                />
-              ))}
-            </ThumbnailContainer>
-            <ProductPrice>
-              ${product.price.toLocaleString()}{" "}
-              <s>${product.price + (product.price * 30) / 100}</s>
-            </ProductPrice>
-            <StockInfo>Stock disponible</StockInfo>
-          </ProductImageContainer>
+          <ContentFirst>
+            <BoxGalleryImg>
+              <ImageGallery
+                className="image-gallery-container"
+                items={images}
+                showPlayButton={false}
+                showNav={true}
+                showThumbnails={true}
+              />
+            </BoxGalleryImg>
 
-          <ProductInfo>
-            <ProductDescription>{product.description}</ProductDescription>
+            <ProductInfo>
+              <ProductPrice>
+                ${product.price.toLocaleString()}{" "}
+                <s>${product.price + (product.price * 30) / 100}</s>
+              </ProductPrice>
+              <StockInfo>Stock disponible</StockInfo>
+              <ProductDescription>{product.description}</ProductDescription>
 
-            <ButtonContainer>
-              <AddToCartButton onClick={handleAddToCart}>
-                Agregar al carrito
-              </AddToCartButton>
-              <BackLink to="/tienda">Volver a la tienda</BackLink>
-            </ButtonContainer>
-          </ProductInfo>
-        </>
+              <ButtonContainer>
+                <AddToCartButton onClick={handleAddToCart}>
+                  Agregar a carrito
+                </AddToCartButton>
+                <BackLink to="/tienda">Volver tienda</BackLink>
+              </ButtonContainer>
+              <Discount>
+                <DiscountText>
+                  30% de descuento abonando por transferencia o en efectivo
+                </DiscountText>
+              </Discount>
+            </ProductInfo>
+          </ContentFirst>
+        </ProductFound>
       ) : (
         <NotFoundMessage>
           <h2>Oops! Producto no encontrado.</h2>

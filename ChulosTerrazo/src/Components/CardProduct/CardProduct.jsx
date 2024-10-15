@@ -12,7 +12,7 @@ import {
   SliderButton,
   SlidersBox,
 } from "./CardProductStyles";
-import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
+import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
 
 export default function CardProduct({ product }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -54,10 +54,10 @@ export default function CardProduct({ product }) {
         </StyledLink>
         <SlidersBox>
           <SliderButton onClick={handlePrevImage}>
-            <IoIosArrowDropleft />
+            <MdArrowBackIos />
           </SliderButton>
           <SliderButton onClick={handleNextImage}>
-            <IoIosArrowDropright />
+            <MdArrowForwardIos />
           </SliderButton>
         </SlidersBox>
         <ProductInfo>

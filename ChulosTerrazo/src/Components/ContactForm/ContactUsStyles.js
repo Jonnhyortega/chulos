@@ -7,6 +7,10 @@ export const FormGroup = styled.div`
     box-sizing: border-box;
   }
 
+  @media (max-width: 668px) {  
+    width: auto;
+}
+
   div {
     position: relative;
 
