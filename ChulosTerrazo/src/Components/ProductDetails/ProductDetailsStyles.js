@@ -58,6 +58,7 @@ export const ProductFound = styled.div`
 export const ContentFirst = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 10px;
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
@@ -70,7 +71,7 @@ export const BoxGalleryImg = styled.div`
 export const ProductInfo = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   font-family: "Poppins", sans-serif;
   overflow: hidden;
 

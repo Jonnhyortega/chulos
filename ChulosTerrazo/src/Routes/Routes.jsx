@@ -6,6 +6,7 @@ import Diseños from "../Pages/Diseños/Diseños";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import Contact from "../Pages/Contact/Contact";
 import ProductDetails from "../Components/ProductDetails/ProductDetails";
+import ThankYouPage from "../Pages/ThankYouPage/ThankYouPage";
 export function Routes() {
   return (
     <ReactDomRoutes>
@@ -14,11 +15,8 @@ export function Routes() {
       <Route path="/about-us" element={<AboutUs />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/tienda/*" element={<StoreProducts />} />
+      <Route path="/thankyou" element={<ThankYouPage />} />
       <Route path="/tienda/product/:id" element={<ProductDetails />} /> 
-
-      {/* <Route path="/mis-ordenes" element={<MisOrdenes />} /> */}
-      {/* <Route path="/checkout" element={<ProtectedRoute redirectTo="/register"><Checkout /></ProtectedRoute>} /> */}
-      {/* <Route path="*" element={<PageNotFound />} /> */}
     </ReactDomRoutes>
   );
 }

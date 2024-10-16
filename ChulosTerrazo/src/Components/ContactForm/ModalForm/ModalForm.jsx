@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-
+import {ButtonFirst} from "../../Buttons/ButtonFirst/ButtonFirst"
 const ModalFormWrapper = styled.div`
   position: fixed;
   top: 0;
@@ -75,10 +75,10 @@ export default function ModalForm({ updateModalOpen }) {
       <div>
         <p>
           ¡Tu mensaje ha sido enviado con éxito! Nos pondremos en contacto
-          contigo lo antes posible. Gracias por tu interés."
+          contigo lo antes posible. Gracias por tu interés.
         </p>
         <span>Chulo's</span>
-        <button onClick={handleClick}>Volver al inicio</button>
+        <ButtonFirst content={"Volver al home"} work={handleClick}></ButtonFirst>
       </div>
     </ModalFormWrapper>
   );

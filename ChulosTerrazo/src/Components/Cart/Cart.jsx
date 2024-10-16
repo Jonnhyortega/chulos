@@ -26,7 +26,6 @@ import { ConfirmationModal } from "../ConfirmationModal/CofirmationModal";
 import { formattedPrice } from "../../Redux/cartSlice/carUtils";
 import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
 import axios from "axios";
-import { LogoTitle } from "../Footer/FooterStyles";
 // IMPORTS
 
 const Cart = () => {
